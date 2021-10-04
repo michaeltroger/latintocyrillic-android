@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+def keystoreProperties = new Properties()
+try {
+    def keystorePropertiesFile = rootProject.file("keystore.properties");
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+} catch(IOException ignored) {
+    // We don't have release keys, ignoring
+}
+
+android {
+    signingConfigs {
+        release {
+            if (keystoreProperties['STORE_FILE']) {
+                storeFile rootProject.file(keystoreProperties['STORE_FILE'])
+                storePassword keystoreProperties['STORE_PASSWORD']
+                keyAlias keystoreProperties['KEY_ALIAS']
+                keyPassword keystoreProperties['KEY_PASSWORD']
+            }
+        }
+    }
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+
+    defaultConfig {
+        applicationId "at.mikenet.serbianlatintocyrillic"
+        minSdkVersion 23
+        targetSdkVersion 29
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        versionCode 55
+        versionName "5.4"
+        resConfigs "en", "de", "hr", "sr"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile(
+                    'proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation project(':latincyrilliccore')
+
+    implementation "androidx.appcompat:appcompat:1.2.0-alpha03"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.fragment:fragment-ktx:1.2.3'
+    implementation 'androidx.preference:preference-ktx:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
+    implementation 'androidx.core:core-ktx:1.2.0'
+
+    implementation 'com.google.android.gms:play-services-instantapps:17.0.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'com.vorlonsoft:androidrate:1.2.1'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
+    testImplementation 'org.assertj:assertj-core:3.14.0'
+}

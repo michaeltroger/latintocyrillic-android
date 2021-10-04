@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".alphabet.AlphabetActivity">
+
+    <item android:id="@+id/menu_adapt_alphabet"
+        android:title="@string/menu_adapt_alphabet"
+        android:icon="@drawable/ic_edit_24px"
+        app:iconTint="?android:attr/colorForeground"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/menu_change_alphabet"
+        android:title="@string/menu_change_alphabet"
+        android:icon="@drawable/ic_swap_vert_24px"
+        app:iconTint="?android:attr/colorForeground"
+        app:showAsAction="ifRoom"/>
+
+</menu>

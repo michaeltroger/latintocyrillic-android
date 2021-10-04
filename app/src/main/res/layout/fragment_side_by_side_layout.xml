@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:id="@+id/side_by_side_root"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <EditText
+        android:id="@+id/latin_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/latin_hint"
+        android:enabled="false"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@id/latinToCyrillicButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="top|start"
+        tools:text="Latin text" />
+
+    <ImageButton
+        android:id="@+id/latinToCyrillicButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_keyboard_arrow_down_24px"
+        android:enabled="false"
+        android:contentDescription="@string/latin_to_cyrillic_button"
+        app:layout_constraintBottom_toTopOf="@id/cyrillic_text"
+        app:layout_constraintEnd_toStartOf="@id/cyrillicToLatinButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/latin_text" />
+
+    <ImageButton
+        android:id="@+id/cyrillicToLatinButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:contentDescription="@string/cyrillic_to_latin_button"
+        android:src="@drawable/ic_keyboard_arrow_up_24px"
+        app:layout_constraintBottom_toTopOf="@id/cyrillic_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/latinToCyrillicButton"
+        app:layout_constraintTop_toBottomOf="@id/latin_text" />
+
+    <EditText
+        android:id="@+id/cyrillic_text"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:hint="@string/cyrillic_hint"
+        android:enabled="false"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/latinToCyrillicButton"
+        app:layout_constraintBottom_toTopOf="@id/language_layout"
+        android:gravity="top|start"
+        tools:text="Cyrillic text" />
+
+    <include
+        android:id="@+id/language_layout"
+        layout="@layout/language"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

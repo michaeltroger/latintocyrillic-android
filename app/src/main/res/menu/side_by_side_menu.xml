@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <item android:id="@+id/copy_latin" android:title="@string/copy_latin" />
+    <item android:id="@+id/copy_cyrillic" android:title="@string/copy_cyrillic" />
+    <item android:id="@+id/share_latin" android:title="@string/share_latin" />
+    <item android:id="@+id/share_cyrillic" android:title="@string/share_cyrillic" />
+    <item android:id="@+id/clear_all"
+        android:title="@string/clear_all"
+        android:icon="@drawable/ic_delete_24px"
+        app:iconTint="?android:attr/colorForeground"
+        app:showAsAction="ifRoom" />
+    <item android:id="@+id/show_alphabet" android:title="@string/show_alphabet"  />
+    <item android:id="@+id/auto_convert_layout" android:title="@string/use_auto_convert_layout"  />
+    <item android:id="@+id/menu_settings"
+        android:title="@string/menu_settings"
+        android:icon="@drawable/ic_settings_24dp"
+        app:iconTint="?android:attr/colorForeground"
+        app:showAsAction="ifRoom"/>
+
+</menu>

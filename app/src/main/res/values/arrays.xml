@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="languageChosen">
+        <item name="5">@string/belarusian_iso9</item>
+        <item name="10">@string/bulgarian_iso9</item>
+        <item name="20">@string/macedonian</item>
+        <item name="21">@string/macedonian_iso9</item>
+        <item name="30">@string/russian_iso9</item>
+        <item name="60">@string/serbian</item>
+        <item name="70">@string/ukrainian_iso9</item>
+        <item name="90">@string/custom</item>
+    </string-array>
+
+    <string-array name="languageChosenValues"> <!-- Also adapt CustomizeFragment -->
+        <item name="5">belarusian_iso9</item>
+        <item name="10">bulgarian_iso9</item>
+        <item name="20">macedonian</item>
+        <item name="21">macedonian_iso9</item>
+        <item name="30">russian_iso9</item>
+        <item name="60">serbian</item>
+        <item name="70">ukrainian_iso9</item>
+        <item name="90">custom</item>
+    </string-array>
+
+</resources>

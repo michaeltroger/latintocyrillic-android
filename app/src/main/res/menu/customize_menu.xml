@@ -1,0 +1,13 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".alphabet.AlphabetActivity">
+
+    <item android:id="@+id/menu_save_custom"
+        android:title="@string/customize_save_cta"
+        android:icon="@drawable/ic_done_24px"
+        app:iconTint="?android:attr/colorForeground"
+        app:showAsAction="ifRoom"
+        android:enabled="false"/>
+
+</menu>

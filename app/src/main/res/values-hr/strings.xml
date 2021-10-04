@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- name views -->
+    <string name="title_activity_user_setting">Postavke</string>
+    <string name="title_activity_customize">Pojedinačna abeceda</string>
+
+    <!-- menu -->
+    <string name="copy_latin">Kopiraj latinicu</string>
+    <string name="copy_cyrillic">Kopiraj ćirilicu</string>
+    <string name="clear_all">Resetuj polja</string>
+    <string name="show_alphabet">Pokaži abecedu</string>
+     
+    <string name="menu_settings">Postavke</string>
+
+    <!-- main activity -->
+    <string name="latin_hint">Latinica</string>
+    <string name="cyrillic_hint">Ćirilica</string>
+    <string name="latin_to_cyrillic_button">Latinica -> Ćirilicu</string>
+    <string name="cyrillic_to_latin_button">Ćirilica -> Latinicu</string>
+    <string name="use_side_by_side_layout">Jedan pored drugog pogled</string>
+    <string name="use_auto_convert_layout">Automatska konverzija</string>
+    
+    <!-- alternative layout -->
+    <string name="auto_convert_button">Konvertiraj</string>
+    <string name="auto_convert_hint">Ubaci tekst</string>
+    <string name="copy_text">Kopiraj</string>
+    <string name="share_text">Dijeli</string>
+    <string name="share_latin">Dijeli latinicu</string>
+    <string name="share_cyrillic">Dijeli ćirilicu</string>
+    <string name="install">Instaliraj</string>
+    
+    <!-- alphabet activity -->
+    <string name="menu_change_alphabet">Promijeni abecedu</string>
+    <string name="menu_adapt_alphabet">Prilagodi abecedu</string>
+
+    <string name="text_copied_toast">Tekst je kopiran</string>
+
+    <!-- preferences -->
+    <string name="pref_cat_update_setting">Ažuriraj postavke</string>
+    <string name="pref_auto_copy">Kopiraj tekst automatski</string>
+    <string name="pref_auto_copy_summary">Automatski kopiraj konvertovani tekst u clipboard</string>
+    <string name="pref_exit">Primijeti tekst</string>
+    <string name="pref_exit_summary">Obnovi tekst koji si pisao zadnji put kad ponovo otvoriš aplikaciju</string>
+    <string name="pref_alt_layout">Automatska konverzija</string>
+    <string name="pref_alt_layout_summary">Pojedinačan tekst sa automatskim prepoznavanjem kućanog teksta</string>
+    <string name="pref_language_chosen">Biraj jezik/abeceda</string>
+    <string name="pref_language_chosen_summary">Biraj jezik/abeceda za konverter</string>
+    <string name="pref_custom_alphabet_title">Pojedinačna abeceda</string>
+    <string name="pref_custom_alphabet_summary">Prilagodi abecedu ili stvori svoju pojedinačnu abecedu</string>
+
+  	<string name="title_activity_alphabet">Odabrana abeceda</string>
+  	<string name="pref_theme">Biraj temu aplikacije</string>
+  	<string name="pref_theme_summary">Promijeni temu aplikacije kako želiš</string>
+  	
+  	<string name="pref_cat_contact">Drugačije</string>
+  	<string name="contact_developer_summary">Ako imaš bilo kakvih problema prilikom korišćenja ove aplikacije ili ako imaš predloge za nove funkcije, kontaktiraj me putem emaila</string>
+  	<string name="contact_developer">"Kontaktiraj programer</string>
+  	<string name="rate_summary">Kad voliš ovu aplikaciju, molim ocijeni je</string>
+  	<string name="rate">Ocijeni aplikaciju</string>
+  	
+  	<!--  languages -->
+  	<string name="serbian">Srpski</string>
+    <string name="custom">Pojedinačno</string>
+    <string name="belarusian_iso9">Bjeloruski (ISO 9:1995)</string>
+    <string name="bulgarian_iso9">Bugarski (ISO 9:1995)</string>
+    <string name="macedonian">Makedonski (ALA-LC)</string>
+    <string name="macedonian_iso9">Makedonski (ISO 9:1995)</string>
+    <string name="russian_iso9">Ruski (ISO 9:1995)</string>
+    <string name="ukrainian_iso9">Ukrajinski (ISO 9:1995)</string>
+
+    <string name="customize_cyrillic_hint">Ćirilica (1 slovo)</string>
+    <string name="customize_latin_hint">Latinica (maks 2 slova)</string>
+    <string name="customize_choose_template_title">Koji predložak želiš koristiti?</string>
+    <string name="customize_choose_template_cancel_button">Otkazi</string>
+    <string name="customize_save_cta">Spremi</string>
+    <string name="customize_add_row_cta">Novi unos</string>
+    <string name="customize_default_title">Primijeni li ovu abecedu sada za pretvorbu?</string>
+    <string name="customize_default_ok">Da</string>
+    <string name="customize_default_no">Ne, kasnije</string>
+    <string name="customize_overwrite_warning_title">Ovo će prebrisati tvoju postojeću prilagođenu abecedu</string>
+    <string name="customize_overwrite_warning_ok">OK</string>
+    <string name="customize_overwrite_warning_cancel">Otkazi</string>
+
+    <string name="alert_conversion_without_alphabet_title">Konverzija neće raditi dok ne postaviš prilagođenu abecedu. Postavi ga sada?</string>
+    <string name="alert_conversion_without_alphabet_yes">Da</string>
+    <string name="alert_conversion_without_alphabet_no">Ne</string>
+
+    <string name="theme_light">Svijetlo</string>
+    <string name="theme_dark">Tamno</string>
+    <string name="theme_battery">Automatski (Štednja baterije)</string>
+    <string name="theme_follow_system">Sistemski standard</string>
+    <string name="theme_follow_system_not_supported">Sistemski standard (Ne podržava se na svim uređajima)</string>
+</resources>

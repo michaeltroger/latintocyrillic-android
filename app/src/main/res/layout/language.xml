@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center_vertical|end"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:orientation="horizontal">
+
+	<Button
+		android:id="@+id/language"
+		android:text=""
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		style="@style/Widget.AppCompat.Button.Borderless"
+		tools:text="Serbian"/>
+
+	<ImageButton
+		android:id="@+id/change_language"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/menu_change_alphabet"
+		style="@style/Widget.AppCompat.ActionButton"
+		android:src="@drawable/ic_swap_horiz_24px"/>
+
+</LinearLayout>
