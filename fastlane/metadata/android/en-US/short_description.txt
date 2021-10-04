@@ -1,0 +1,1 @@
+Converts Latinica to Ћирилица and vice versa.

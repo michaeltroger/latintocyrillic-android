@@ -1,0 +1,18 @@
+<b>Ovaj Latinica na Ćirilicu konvertor (transliterator) konvertuje / pretvara latinična slova u ćirilična i obrnuto. Podržava srpsku / hrvatsku azbuku,  rusku abecedu (ISO 9:1995) i 5 više</b>
+
+
+Podržava dva različita izgleda:
+-Latinični i ćirilični tekst jedan pored drugog i
+-Pojedinačan tekst sa automatskim prepoznavanjem kućanog teksta
+
+Konvertovani tekst se može automatski kopirati u clipboard.
+
+
+Podržava Ćirilica na Latinicu & Latinica na Ćirilicu konvertor za:
+Srpska azbuka
+Bjeloruski (ISO 9:1995)
+Bugarski (ISO 9:1995)
+Makedonski (ALA-LC)
+Makedonski (ISO 9:1995)
+Ruski (ISO 9:1995)
+Ukrajinski (ISO 9:1995)

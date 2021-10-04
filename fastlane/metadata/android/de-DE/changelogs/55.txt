@@ -1,0 +1,2 @@
+- New app name: Cyrillic.app
+- Layout and Design improvements
