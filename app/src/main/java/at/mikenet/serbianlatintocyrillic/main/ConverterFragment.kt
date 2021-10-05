@@ -3,7 +3,6 @@ package at.mikenet.serbianlatintocyrillic.main
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -15,18 +14,12 @@ import at.mikenet.serbianlatintocyrillic.alphabet.AlphabetActivity
 import at.mikenet.serbianlatintocyrillic.settings.SettingsActivity
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
-import com.google.android.gms.instantapps.InstantApps
 
 abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private var shouldUpdateLanguage = false
 
     protected lateinit var viewModel: ConverterViewModel
-
-    private companion object {
-        const val INSTALL_BUTTON_ITEM_ID = 21976
-    }
-
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
@@ -77,14 +70,6 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
                 startActivity(i)
                 return true
             }
-            INSTALL_BUTTON_ITEM_ID -> {
-                InstantApps.showInstallPrompt(requireActivity(), Intent().apply {
-                    action = Intent.ACTION_SEND
-                    putExtra(Intent.EXTRA_TEXT, viewModel.getCachedText())
-                    type = "text/plain"
-                }, 0, null)
-                return true
-            }
         }
         return super.onOptionsItemSelected(item)
     }
@@ -92,12 +77,6 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
     private fun showAlphabet() {
         val i = Intent(context, AlphabetActivity::class.java)
         startActivity(i)
-    }
-
-    fun addInstallButtonIfInstantApp(menu: Menu) {
-        if (com.google.android.gms.common.wrappers.InstantApps.isInstantApp(requireContext())) {
-            menu.add(0, INSTALL_BUTTON_ITEM_ID, 0, requireContext().getString(R.string.install))
-        }
     }
 
     override fun onStop() {

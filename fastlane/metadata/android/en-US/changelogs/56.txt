@@ -1,0 +1,4 @@
+- Remove instant app functionality
+- Update to Java 11, Gradle 7, SDK 30, and all other dependencies
+- Support round app icon
+- Make app name shorter

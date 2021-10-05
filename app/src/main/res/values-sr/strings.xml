@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">Ћирилица</string>
+
     <!-- name views -->
     <string name="title_activity_user_setting">Поставке</string>
     <string name="title_activity_customize">Појединачна абецеда</string>
@@ -28,7 +30,6 @@
     <string name="share_text">Дели</string>
     <string name="share_latin">Дели латиницу</string>
     <string name="share_cyrillic">Дели ћирилицу</string>
-    <string name="install">Инсталирај</string>
     
     <!-- alphabet activity -->
     <string name="menu_change_alphabet">Промени абецеду</string>

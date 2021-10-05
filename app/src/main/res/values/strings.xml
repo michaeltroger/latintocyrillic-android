@@ -8,7 +8,7 @@
     <string name="beta_channel_uri" translatable="false">https://play.google.com/apps/testing/at.mikenet.serbianlatintocyrillic</string>
 
     <!-- title of views -->
-    <string name="app_name" translatable="false">Cyrillic.app</string>
+    <string name="app_name">Cyrillic</string>
     <string name="title_activity_user_setting">Settings</string>
     <string name="title_activity_customize">Custom Alphabet</string>
     <string name="title_activity_alphabet">Chosen Alphabet</string>
@@ -25,7 +25,6 @@
     <string name="share_text">Share</string>
     <string name="share_latin">Share Latin Text</string>
     <string name="share_cyrillic">Share Cyrillic text</string>
-    <string name="install">Install</string>
 
     <!-- menu alphabet -->
     <string name="menu_change_alphabet">Switch alphabet</string>
