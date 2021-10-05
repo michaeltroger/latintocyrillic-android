@@ -100,9 +100,11 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     fun saveText(context: Context) {
+        textCached?.let {
+            _text.value = it
+        }
         GlobalScope.launch(Dispatchers.IO) {
             textCached?.let {
-                _text.value = it
                 PreferenceTools.saveText(context, it.first, it.second)
             }
         }
