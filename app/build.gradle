@@ -21,16 +21,16 @@ android {
             }
         }
     }
-    compileSdkVersion 29
-    buildToolsVersion '29.0.2'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
 
     defaultConfig {
         applicationId "at.mikenet.serbianlatintocyrillic"
         minSdkVersion 23
-        targetSdkVersion 29
+        targetSdkVersion 30
         compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
+            sourceCompatibility JavaVersion.VERSION_11
+            targetCompatibility JavaVersion.VERSION_11
         }
         versionCode 55
         versionName "5.4"
@@ -53,25 +53,24 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8
+        jvmTarget = JavaVersion.VERSION_11
     }
 }
 
 dependencies {
     implementation project(':latincyrilliccore')
 
-    implementation "androidx.appcompat:appcompat:1.2.0-alpha03"
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    implementation 'androidx.fragment:fragment-ktx:1.2.3'
-    implementation 'androidx.preference:preference-ktx:1.1.0'
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.2.0'
-    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation 'androidx.fragment:fragment-ktx:1.3.6'
+    implementation 'androidx.preference:preference-ktx:1.1.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.core:core-ktx:1.6.0'
 
-    implementation 'com.google.android.gms:play-services-instantapps:17.0.0'
     implementation 'com.google.code.gson:gson:2.8.6'
 
     implementation 'com.vorlonsoft:androidrate:1.2.1'
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.2'
-    testImplementation 'org.assertj:assertj-core:3.14.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testImplementation 'org.assertj:assertj-core:3.20.2'
 }

@@ -125,7 +125,6 @@ class SideBySideLayoutFragment : ConverterFragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.side_by_side_menu, menu)
-        addInstallButtonIfInstantApp(menu)
     }
 
     override fun updateLanguageButton(text: String) {

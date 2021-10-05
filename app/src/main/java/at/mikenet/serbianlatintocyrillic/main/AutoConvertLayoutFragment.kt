@@ -92,7 +92,6 @@ class AutoConvertLayoutFragment : ConverterFragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.auto_convert_menu, menu)
-        addInstallButtonIfInstantApp(menu)
     }
 
     override fun updateLanguageButton(text: String) {
