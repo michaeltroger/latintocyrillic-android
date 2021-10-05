@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="app_name">Ćirilica</string>
+
     <!-- name views -->
     <string name="title_activity_user_setting">Postavke</string>
     <string name="title_activity_customize">Pojedinačna abeceda</string>
