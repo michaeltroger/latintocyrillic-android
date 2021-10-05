@@ -36,12 +36,16 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
             if (intentText.isNotEmpty()) {
                 val isCyrillic = isCyrillic(intentText)
                 setCachedText(intentText, isCyrillic)
-                _text.postValue(textCached)
+                textCached?.let {
+                    _text.postValue(it)
+                }
             } else if (PreferenceTools.restoreOnStart(app)) {
                 val text = PreferenceTools.getSavedText(app)
                 val isCyrillic = PreferenceTools.getSavedTextIsCyrillic(app)
                 setCachedText(text, isCyrillic)
-                _text.postValue(textCached)
+                textCached?.let {
+                    _text.postValue(it)
+                }
             }
             _allowConversion.postValue(true)
             systemLanguage = Locale.getDefault().language
@@ -93,14 +97,18 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
                 intentText = text
             } else {
                 setCachedText(text, isCyrillic(text))
-                _text.postValue(textCached)
+                textCached?.let {
+                    _text.postValue(it)
+                }
             }
         }
 
     }
 
     fun saveText(context: Context) {
-        _text.value = textCached
+        textCached?.let {
+            _text.postValue(it)
+        }
         GlobalScope.launch(Dispatchers.IO) {
             val text = textCached
             text?.apply {
