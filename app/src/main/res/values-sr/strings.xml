@@ -30,7 +30,6 @@
     <string name="share_text">Дели</string>
     <string name="share_latin">Дели латиницу</string>
     <string name="share_cyrillic">Дели ћирилицу</string>
-    <string name="install">Инсталирај</string>
     
     <!-- alphabet activity -->
     <string name="menu_change_alphabet">Промени абецеду</string>

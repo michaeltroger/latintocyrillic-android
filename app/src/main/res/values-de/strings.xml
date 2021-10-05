@@ -27,7 +27,6 @@
     <string name="share_text">Teilen</string>
     <string name="share_latin">Lateinischen Text teilen</string>
     <string name="share_cyrillic">Kyrillischen Text teilen</string>
-    <string name="install">Installieren</string>
     
     <!-- alphabet activity -->
     <string name="menu_change_alphabet">Alphabet wechseln</string>

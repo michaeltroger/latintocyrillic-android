@@ -25,7 +25,6 @@
     <string name="share_text">Share</string>
     <string name="share_latin">Share Latin Text</string>
     <string name="share_cyrillic">Share Cyrillic text</string>
-    <string name="install">Install</string>
 
     <!-- menu alphabet -->
     <string name="menu_change_alphabet">Switch alphabet</string>
