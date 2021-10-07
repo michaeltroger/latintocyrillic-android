@@ -1,4 +1,4 @@
-# Cyrillic Transliteration: Latin To Cyrillic Android App
+# Cyrillic Transliterator: Latin To Cyrillic Android App
 [![Android CI](https://github.com/michaeltroger/latintocyrillic-android/actions/workflows/android.yml/badge.svg)](https://github.com/michaeltroger/latintocyrillic-android/actions/workflows/android.yml)
 
 Converts Latin to Cyrillic and vice versa.
