@@ -7,9 +7,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.michaeltroger.serbianlatintocyrillic.Alphabet
-import com.michaeltroger.serbianlatintocyrillic.CyrillicFactory
-import com.michaeltroger.serbianlatintocyrillic.Cyrillic
+import com.michaeltroger.latintocyrillic.Alphabet
+import com.michaeltroger.latintocyrillic.CyrillicFactory
+import com.michaeltroger.latintocyrillic.Cyrillic
 
 object PreferenceTools {
 
@@ -151,7 +151,7 @@ object PreferenceTools {
             cyrillic = emptyList()
         }
 
-        return CyrillicFactory.createConverter(latin = latin, cyrillic = cyrillic)
+        return CyrillicFactory.createConverter(latin = latin, cyrillic = cyrillic.map { it[0] })
     }
 
     fun hasCustomAlphabet(context: Context): Boolean {

@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import com.michaeltroger.serbianlatintocyrillic.Cyrillic
+import com.michaeltroger.latintocyrillic.Cyrillic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -78,8 +78,8 @@ class AlphabetViewModel(app: Application) : AndroidViewModel(app) {
 
         val convert = converter
         if (convert != null) {
-            _latinAlphabet.postValue(convert.latinAlphabet.joinToString(separator = "\n"))
-            _cyrillicAlphabet.postValue(convert.cyrillicAlphabet.joinToString(separator = "\n"))
+            _latinAlphabet.postValue(convert.getLatinAlphabet().joinToString(separator = "\n"))
+            _cyrillicAlphabet.postValue(convert.getCyrillicAlphabet().joinToString(separator = "\n"))
         }
     }
 

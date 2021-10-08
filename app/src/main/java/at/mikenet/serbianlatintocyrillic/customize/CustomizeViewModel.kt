@@ -30,8 +30,8 @@ class CustomizeViewModel: ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             if (lang.isNotEmpty()) {
                 val converter = PreferenceTools.getAlphabetRepo(context, lang)
-                _cyrillicAlphabet.postValue(converter.cyrillicAlphabet.toMutableList())
-                _latinAlphabet.postValue(converter.latinAlphabet.toMutableList())
+                _cyrillicAlphabet.postValue(converter.getCyrillicAlphabet().toMutableList())
+                _latinAlphabet.postValue(converter.getLatinAlphabet().toMutableList())
             }
             _enableAddRowButton.postValue(true)
             _enableSaveButton.postValue(true)

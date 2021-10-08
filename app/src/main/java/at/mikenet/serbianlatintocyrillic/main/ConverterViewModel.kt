@@ -12,7 +12,7 @@ import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools.setLanguageChosen
-import com.michaeltroger.serbianlatintocyrillic.Cyrillic
+import com.michaeltroger.latintocyrillic.Cyrillic
 import kotlinx.coroutines.*
 import java.util.*
 
