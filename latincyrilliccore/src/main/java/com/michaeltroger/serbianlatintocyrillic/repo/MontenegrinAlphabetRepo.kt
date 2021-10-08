@@ -3,7 +3,7 @@ package com.michaeltroger.serbianlatintocyrillic.repo
 import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
 
 @Deprecated("Has cyrillic with 2 letters, not supported by converter")
-public class MontenegrinAlphabetRepo : LatinCyrillicAlphabetRepo() {
+internal class MontenegrinAlphabetRepo : LatinCyrillicAlphabetRepo() {
 
     override val latinToCyrillicAlphabet: Map<String, String> by lazy {
         hashMapOf(

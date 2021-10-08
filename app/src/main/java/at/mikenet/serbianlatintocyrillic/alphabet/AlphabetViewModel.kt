@@ -7,7 +7,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -72,8 +71,7 @@ class AlphabetViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     private suspend fun init(context: Context, language: String) = withContext(Dispatchers.IO) {
-        val repo = PreferenceTools.getAlphabetRepo(context, language)
-        converter = LatinToCyrillicImpl(repo)
+        converter = PreferenceTools.getAlphabetRepo(context, language)
 
         _alphabetName.postValue(PreferenceTools.getLocalizedAlphabetName(context))
         _language.postValue(language)

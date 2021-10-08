@@ -12,7 +12,6 @@ import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools.setLanguageChosen
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
 import kotlinx.coroutines.*
 import java.util.*
@@ -125,8 +124,7 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
     }
 
     private suspend fun init(context: Context, lang: String) = withContext(Dispatchers.IO) {
-        val repo = PreferenceTools.getAlphabetRepo(context, lang)
-        converter = LatinToCyrillicImpl(repo)
+        converter = PreferenceTools.getAlphabetRepo(context, lang)
         _languageButtonString.postValue(PreferenceTools.getLocalizedAlphabetName(context, lang))
     }
 

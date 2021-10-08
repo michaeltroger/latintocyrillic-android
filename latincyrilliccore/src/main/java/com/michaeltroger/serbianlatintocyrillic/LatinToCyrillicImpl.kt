@@ -1,9 +1,28 @@
 package com.michaeltroger.serbianlatintocyrillic
 
+import com.michaeltroger.serbianlatintocyrillic.repo.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-public class LatinToCyrillicImpl(private val repo: LatinCyrillicAlphabetRepo) : LatinToCyrillic {
+internal class LatinToCyrillicImpl : LatinToCyrillic {
+
+    private lateinit var repo: LatinCyrillicAlphabetRepo
+
+    constructor(latin: List<String>, cyrillic: List<String>) {
+        this.repo = CustomAlphabetRepo(latin, cyrillic)
+    }
+
+    constructor(alphabet: Alphabet) {
+        this.repo = when (alphabet) {
+            Alphabet.BelarusianIso9 -> BelarusianIso9AlphabetRepo()
+            Alphabet.BulgarianIso9 -> BulgarianIso9AlphabetRepo()
+            Alphabet.Macedonian -> MacedonianAlphabetRepo()
+            Alphabet.MacedonianIso9 -> MacedonianIso9AlphabetRepo()
+            Alphabet.RussianIso9 -> RussianIso9AlphabetRepo()
+            Alphabet.Serbian -> SerbianAlphabetRepo()
+            Alphabet.UkrainianIso9 -> UkrainianIso9AlphabetRepo()
+        }
+    }
 
     private val latinToCyrillicMap by lazy {
         repo.getLatinToCyrillicMap()

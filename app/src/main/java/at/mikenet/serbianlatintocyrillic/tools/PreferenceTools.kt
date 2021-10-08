@@ -7,8 +7,9 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
-import com.michaeltroger.serbianlatintocyrillic.repo.*
+import com.michaeltroger.serbianlatintocyrillic.Alphabet
+import com.michaeltroger.serbianlatintocyrillic.CyrillicFactory
+import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
 
 object PreferenceTools {
 
@@ -118,21 +119,21 @@ object PreferenceTools {
         editor.putString(MyPreferenceConstants.Key.CUSTOM_CYRILLIC, gson.toJson(cyrillic)).apply()
     }
 
-    fun getAlphabetRepo(context: Context, lang: String): LatinCyrillicAlphabetRepo {
+    fun getAlphabetRepo(context: Context, lang: String): LatinToCyrillic {
         return when(lang) {
-            MyPreferenceConstants.Value.ChosenLanguage.BELARUSIAN_ISO9 -> BelarusianIso9AlphabetRepo()
-            MyPreferenceConstants.Value.ChosenLanguage.BULGARIAN_ISO9 -> BulgarianIso9AlphabetRepo()
-            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN -> MacedonianAlphabetRepo()
-            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN_ISO9 -> MacedonianIso9AlphabetRepo()
-            MyPreferenceConstants.Value.ChosenLanguage.RUSSIAN_ISO9 -> RussianIso9AlphabetRepo()
-            MyPreferenceConstants.Value.ChosenLanguage.SERBIAN -> SerbianAlphabetRepo()
-            MyPreferenceConstants.Value.ChosenLanguage.UKRAINIAN_ISO9 -> UkrainianIso9AlphabetRepo()
+            MyPreferenceConstants.Value.ChosenLanguage.BELARUSIAN_ISO9 -> CyrillicFactory.createConverter(Alphabet.BelarusianIso9)
+            MyPreferenceConstants.Value.ChosenLanguage.BULGARIAN_ISO9 -> CyrillicFactory.createConverter(Alphabet.BulgarianIso9)
+            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN -> CyrillicFactory.createConverter(Alphabet.Macedonian)
+            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN_ISO9 -> CyrillicFactory.createConverter(Alphabet.MacedonianIso9)
+            MyPreferenceConstants.Value.ChosenLanguage.RUSSIAN_ISO9 -> CyrillicFactory.createConverter(Alphabet.RussianIso9)
+            MyPreferenceConstants.Value.ChosenLanguage.SERBIAN -> CyrillicFactory.createConverter(Alphabet.Serbian)
+            MyPreferenceConstants.Value.ChosenLanguage.UKRAINIAN_ISO9 -> CyrillicFactory.createConverter(Alphabet.UkrainianIso9)
             MyPreferenceConstants.Value.ChosenLanguage.CUSTOM ->  getCustomAlphabetRepo(context)
-            else -> SerbianAlphabetRepo()
+            else -> CyrillicFactory.createConverter(Alphabet.Serbian)
         }
     }
 
-    private fun getCustomAlphabetRepo(context: Context): LatinCyrillicAlphabetRepo {
+    private fun getCustomAlphabetRepo(context: Context): LatinToCyrillic {
         val latin: List<String>
         val cyrillic: List<String>
         if (hasCustomAlphabet(context)) {
@@ -143,14 +144,14 @@ object PreferenceTools {
             val gson = Gson()
             val itemType = object : TypeToken<List<String>>() {}.type
 
-            latin = gson.fromJson<List<String>>(latinString, itemType)
-            cyrillic = gson.fromJson<List<String>>(cyrillicString, itemType)
+            latin = gson.fromJson(latinString, itemType)
+            cyrillic = gson.fromJson(cyrillicString, itemType)
         } else {
             latin = emptyList()
             cyrillic = emptyList()
         }
 
-        return CustomAlphabetRepo(latin = latin, cyrillic = cyrillic)
+        return CyrillicFactory.createConverter(latin = latin, cyrillic = cyrillic)
     }
 
     fun hasCustomAlphabet(context: Context): Boolean {

@@ -3,7 +3,7 @@ package com.michaeltroger.serbianlatintocyrillic.repo
 import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
 
 
-public class MacedonianAlphabetRepo : LatinCyrillicAlphabetRepo() {
+internal class MacedonianAlphabetRepo : LatinCyrillicAlphabetRepo() {
 
     override val latinToCyrillicAlphabet: Map<String, String> by lazy {
         hashMapOf(

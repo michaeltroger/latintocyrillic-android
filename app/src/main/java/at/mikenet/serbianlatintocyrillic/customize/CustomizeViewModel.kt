@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -30,8 +29,7 @@ class CustomizeViewModel: ViewModel() {
     fun initViewModel(lang: String, context: Context) {
         viewModelScope.launch(Dispatchers.IO) {
             if (lang.isNotEmpty()) {
-                val repo = PreferenceTools.getAlphabetRepo(context, lang)
-                val converter = LatinToCyrillicImpl(repo)
+                val converter = PreferenceTools.getAlphabetRepo(context, lang)
                 _cyrillicAlphabet.postValue(converter.cyrillicAlphabet.toMutableList())
                 _latinAlphabet.postValue(converter.latinAlphabet.toMutableList())
             }
