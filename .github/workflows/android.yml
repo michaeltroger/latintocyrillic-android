@@ -22,6 +22,8 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Run unit tests
+      run: ./gradlew :latincyrilliccore:test
     - name: Build with Gradle
       run: ./gradlew assembleDebug
     - uses: actions/upload-artifact@v2
