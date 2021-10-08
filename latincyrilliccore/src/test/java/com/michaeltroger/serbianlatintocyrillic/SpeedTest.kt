@@ -11,7 +11,7 @@ internal class SpeedTest {
     fun `Test sentences`() {
         runBlocking {
             val time = System.nanoTime()
-            val converter = LatinToCyrillicImpl(SerbianAlphabetRepo())
+            val converter = CyrillicImpl(SerbianAlphabetRepo())
             converter.latinToCyrillic("Procenjena vrednost fabrike je veća od 514 miliona dinara (4.373.000 evra), a kako je ponuda manja od 50 odsto procenjene vrednosti, saglasnost za prodaju dao je odbor poverilaca.")
             val computationTime = System.nanoTime() - time
 

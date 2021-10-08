@@ -1,6 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic
 
-public interface LatinToCyrillic {
+public interface Cyrillic {
 
     public suspend fun latinToCyrillic(text: String): String
     public suspend fun cyrillicToLatin(text: String): String

@@ -1,6 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.macedonian.iso9
 
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
+import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.MacedonianIso9AlphabetRepo
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test
 
 internal class MacedonianIso9CyrillicToLatinTest {
 
-    private lateinit var converter: LatinToCyrillicImpl
+    private lateinit var converter: CyrillicImpl
 
     @BeforeEach
     fun setUp() {
-        converter = LatinToCyrillicImpl(MacedonianIso9AlphabetRepo())
+        converter = CyrillicImpl(MacedonianIso9AlphabetRepo())
     }
 
     @Test

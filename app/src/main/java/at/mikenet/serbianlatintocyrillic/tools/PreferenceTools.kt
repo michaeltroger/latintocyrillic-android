@@ -9,7 +9,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.michaeltroger.serbianlatintocyrillic.Alphabet
 import com.michaeltroger.serbianlatintocyrillic.CyrillicFactory
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
+import com.michaeltroger.serbianlatintocyrillic.Cyrillic
 
 object PreferenceTools {
 
@@ -119,7 +119,7 @@ object PreferenceTools {
         editor.putString(MyPreferenceConstants.Key.CUSTOM_CYRILLIC, gson.toJson(cyrillic)).apply()
     }
 
-    fun getAlphabetRepo(context: Context, lang: String): LatinToCyrillic {
+    fun getAlphabetRepo(context: Context, lang: String): Cyrillic {
         return when(lang) {
             MyPreferenceConstants.Value.ChosenLanguage.BELARUSIAN_ISO9 -> CyrillicFactory.createConverter(Alphabet.BelarusianIso9)
             MyPreferenceConstants.Value.ChosenLanguage.BULGARIAN_ISO9 -> CyrillicFactory.createConverter(Alphabet.BulgarianIso9)
@@ -133,7 +133,7 @@ object PreferenceTools {
         }
     }
 
-    private fun getCustomAlphabetRepo(context: Context): LatinToCyrillic {
+    private fun getCustomAlphabetRepo(context: Context): Cyrillic {
         val latin: List<String>
         val cyrillic: List<String>
         if (hasCustomAlphabet(context)) {

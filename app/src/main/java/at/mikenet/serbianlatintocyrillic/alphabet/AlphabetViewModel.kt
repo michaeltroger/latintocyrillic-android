@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
+import com.michaeltroger.serbianlatintocyrillic.Cyrillic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -15,7 +15,7 @@ import java.util.*
 
 class AlphabetViewModel(app: Application) : AndroidViewModel(app) {
 
-    private var converter: LatinToCyrillic? = null
+    private var converter: Cyrillic? = null
     private val _latinAlphabet = MutableLiveData<String>()
     private val _cyrillicAlphabet = MutableLiveData<String>()
     private val _alphabetName = MutableLiveData<String>()

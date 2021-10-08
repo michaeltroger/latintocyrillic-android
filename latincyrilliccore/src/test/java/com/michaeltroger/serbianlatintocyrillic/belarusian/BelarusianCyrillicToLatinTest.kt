@@ -1,6 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.belarusian
 
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
+import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.BelarusianIso9AlphabetRepo
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
@@ -9,11 +9,11 @@ import org.junit.jupiter.api.Test
 
 internal class BelarusianCyrillicToLatinTest {
 
-    private lateinit var converter: LatinToCyrillicImpl
+    private lateinit var converter: CyrillicImpl
 
     @BeforeEach
     fun setUp() {
-        converter = LatinToCyrillicImpl(BelarusianIso9AlphabetRepo())
+        converter = CyrillicImpl(BelarusianIso9AlphabetRepo())
     }
 
     @Test

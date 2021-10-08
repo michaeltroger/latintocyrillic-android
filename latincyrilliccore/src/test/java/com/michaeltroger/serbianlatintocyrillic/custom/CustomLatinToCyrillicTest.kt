@@ -1,7 +1,7 @@
 package com.michaeltroger.serbianlatintocyrillic.custom
 
 import com.michaeltroger.serbianlatintocyrillic.repo.CustomAlphabetRepo
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
+import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.SerbianAlphabetRepo
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
@@ -12,7 +12,7 @@ internal class CustomLatinToCyrillicTest {
     @Test
     fun `Test edge cases`() {
         val repo = CustomAlphabetRepo(latin = listOf("a", "bc"), cyrillic = listOf("Љ", "Џ"))
-        val converter = LatinToCyrillicImpl(repo)
+        val converter = CyrillicImpl(repo)
         runBlocking {
             assertThat(converter.latinToCyrillic("")).isEqualTo("")
             assertThat(converter.latinToCyrillic(".")).isEqualTo(".")
@@ -25,7 +25,7 @@ internal class CustomLatinToCyrillicTest {
     @Test
     fun `Test with two letters in alphabet`() {
         val repo = CustomAlphabetRepo(latin = listOf("a", "bc"), cyrillic = listOf("Љ", "Џ"))
-        val converter = LatinToCyrillicImpl(repo)
+        val converter = CyrillicImpl(repo)
         runBlocking {
             assertThat(converter.latinToCyrillic("a")).isEqualTo("Љ")
             assertThat(converter.latinToCyrillic("bc")).isEqualTo("Џ")
@@ -37,7 +37,7 @@ internal class CustomLatinToCyrillicTest {
     @Test
     fun `Test with one letter in alphabet`() {
         val repo = CustomAlphabetRepo(latin = listOf("a"), cyrillic = listOf("Љ"))
-        val converter = LatinToCyrillicImpl(repo)
+        val converter = CyrillicImpl(repo)
         runBlocking {
             assertThat(converter.latinToCyrillic("a")).isEqualTo("Љ")
             assertThat(converter.latinToCyrillic("n")).isEqualTo("n")
@@ -47,7 +47,7 @@ internal class CustomLatinToCyrillicTest {
     @Test
     fun `Test sentences`() {
         val repo = CustomAlphabetRepo(latin = listOf("a", "bc"), cyrillic = listOf("Љ", "Џ"))
-        val converter = LatinToCyrillicImpl(repo)
+        val converter = CyrillicImpl(repo)
         runBlocking {
             assertThat(converter.latinToCyrillic("abc ;-) nice"))
                     .isEqualTo("ЉЏ ;-) nice")
@@ -60,12 +60,12 @@ internal class CustomLatinToCyrillicTest {
     @Test
     fun `Test extending serbian alphabet by one letter`() {
         val serbianRepo = SerbianAlphabetRepo()
-        val serbianConverter = LatinToCyrillicImpl(serbianRepo)
+        val serbianConverter = CyrillicImpl(serbianRepo)
         val latin = serbianConverter.latinAlphabet
         val cyrillic = serbianConverter.cyrillicAlphabet
 
         val repo = CustomAlphabetRepo(latin = latin + listOf("Dz"), cyrillic = cyrillic + listOf("Ѕ"))
-        val converter = LatinToCyrillicImpl(repo)
+        val converter = CyrillicImpl(repo)
         runBlocking {
             assertThat(converter.latinToCyrillic(
                     """"

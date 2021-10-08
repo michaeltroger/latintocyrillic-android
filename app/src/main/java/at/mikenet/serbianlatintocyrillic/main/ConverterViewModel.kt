@@ -12,7 +12,7 @@ import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools.setLanguageChosen
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
+import com.michaeltroger.serbianlatintocyrillic.Cyrillic
 import kotlinx.coroutines.*
 import java.util.*
 
@@ -22,7 +22,7 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
     private val _text = MutableLiveData<Pair<String, Boolean>>()
     private val _allowConversion = MutableLiveData<Boolean>()
     private val _languageButtonString = MutableLiveData<String>()
-    private var converter: LatinToCyrillic? = null
+    private var converter: Cyrillic? = null
     private var toast: Toast? = null
     private var systemLanguage: String? = null
     private var textCached: Pair<String, Boolean>? = null

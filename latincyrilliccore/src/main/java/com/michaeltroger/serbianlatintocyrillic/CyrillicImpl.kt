@@ -4,7 +4,7 @@ import com.michaeltroger.serbianlatintocyrillic.repo.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-internal class LatinToCyrillicImpl : LatinToCyrillic {
+internal class CyrillicImpl : Cyrillic {
 
     private lateinit var repo: LatinCyrillicAlphabetRepo
 
