@@ -4,7 +4,7 @@ import com.michaeltroger.serbianlatintocyrillic.repo.CustomAlphabetRepo
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
-class CustomAlphabetRepoTest {
+internal class CustomAlphabetRepoTest {
 
     @Test
     fun `Verify alphabet size`() {

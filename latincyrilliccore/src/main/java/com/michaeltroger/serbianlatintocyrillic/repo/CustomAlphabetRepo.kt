@@ -1,13 +1,13 @@
 package com.michaeltroger.serbianlatintocyrillic.repo
 
-import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepoI
+import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
 
 /**
  * Both must be of same size and correctly sorted
  */
-class CustomAlphabetRepo(latin: List<String>, cyrillic: List<String>) : LatinCyrillicAlphabetRepoI() {
+public class CustomAlphabetRepo(latin: List<String>, cyrillic: List<String>) : LatinCyrillicAlphabetRepo() {
 
-    override val latinToCyrillicAlphabet by lazy {
+    override val latinToCyrillicAlphabet: Map<String, String> by lazy {
         var i = 0
         latin.associateWith {
             cyrillic[i++]

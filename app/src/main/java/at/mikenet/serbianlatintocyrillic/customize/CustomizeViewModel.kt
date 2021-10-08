@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
+import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -31,9 +31,9 @@ class CustomizeViewModel: ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             if (lang.isNotEmpty()) {
                 val repo = PreferenceTools.getAlphabetRepo(context, lang)
-                val converter = LatinToCyrillic(repo)
-                _cyrillicAlphabet.postValue(converter.getCyrillicAlphabet.toMutableList())
-                _latinAlphabet.postValue(converter.getLatinAlphabet.toMutableList())
+                val converter = LatinToCyrillicImpl(repo)
+                _cyrillicAlphabet.postValue(converter.cyrillicAlphabet.toMutableList())
+                _latinAlphabet.postValue(converter.latinAlphabet.toMutableList())
             }
             _enableAddRowButton.postValue(true)
             _enableSaveButton.postValue(true)

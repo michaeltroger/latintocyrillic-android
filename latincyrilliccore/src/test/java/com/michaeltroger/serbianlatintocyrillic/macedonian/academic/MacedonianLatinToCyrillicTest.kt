@@ -1,19 +1,19 @@
 package com.michaeltroger.serbianlatintocyrillic.macedonian.academic
 
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
+import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.MacedonianAlphabetRepo
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class MacedonianLatinToCyrillicTest {
+internal class MacedonianLatinToCyrillicTest {
 
-    private lateinit var converter: LatinToCyrillic
+    private lateinit var converter: LatinToCyrillicImpl
 
     @BeforeEach
     fun setUp() {
-        converter = LatinToCyrillic(MacedonianAlphabetRepo())
+        converter = LatinToCyrillicImpl(MacedonianAlphabetRepo())
     }
 
     @Test

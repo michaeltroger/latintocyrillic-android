@@ -1,17 +1,15 @@
 package com.michaeltroger.serbianlatintocyrillic.russian
 
 
-import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepoI
-import com.michaeltroger.serbianlatintocyrillic.repo.BulgarianIso9AlphabetRepo
-import com.michaeltroger.serbianlatintocyrillic.repo.MacedonianIso9AlphabetRepo
+import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
 import com.michaeltroger.serbianlatintocyrillic.repo.RussianIso9AlphabetRepo
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class RussianIso9AlphabetRepoTest {
+internal class RussianIso9AlphabetRepoTest {
 
-    private lateinit var repo: LatinCyrillicAlphabetRepoI
+    private lateinit var repo: LatinCyrillicAlphabetRepo
 
     @BeforeEach
     fun setUp() {

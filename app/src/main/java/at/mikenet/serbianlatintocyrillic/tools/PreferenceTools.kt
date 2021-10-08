@@ -5,10 +5,9 @@ import android.content.res.Configuration
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.preference.PreferenceManager
-import at.mikenet.serbianlatintocyrillic.R
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepoI
+import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
 import com.michaeltroger.serbianlatintocyrillic.repo.*
 
 object PreferenceTools {
@@ -119,7 +118,7 @@ object PreferenceTools {
         editor.putString(MyPreferenceConstants.Key.CUSTOM_CYRILLIC, gson.toJson(cyrillic)).apply()
     }
 
-    fun getAlphabetRepo(context: Context, lang: String): LatinCyrillicAlphabetRepoI {
+    fun getAlphabetRepo(context: Context, lang: String): LatinCyrillicAlphabetRepo {
         return when(lang) {
             MyPreferenceConstants.Value.ChosenLanguage.BELARUSIAN_ISO9 -> BelarusianIso9AlphabetRepo()
             MyPreferenceConstants.Value.ChosenLanguage.BULGARIAN_ISO9 -> BulgarianIso9AlphabetRepo()
@@ -133,7 +132,7 @@ object PreferenceTools {
         }
     }
 
-    private fun getCustomAlphabetRepo(context: Context): LatinCyrillicAlphabetRepoI {
+    private fun getCustomAlphabetRepo(context: Context): LatinCyrillicAlphabetRepo {
         val latin: List<String>
         val cyrillic: List<String>
         if (hasCustomAlphabet(context)) {

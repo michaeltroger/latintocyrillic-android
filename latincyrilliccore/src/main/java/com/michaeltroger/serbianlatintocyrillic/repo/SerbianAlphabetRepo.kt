@@ -1,11 +1,11 @@
 package com.michaeltroger.serbianlatintocyrillic.repo
 
-import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepoI
+import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
 
 
-class SerbianAlphabetRepo : LatinCyrillicAlphabetRepoI() {
+public class SerbianAlphabetRepo : LatinCyrillicAlphabetRepo() {
 
-    override val latinToCyrillicAlphabet by lazy {
+    override val latinToCyrillicAlphabet: Map<String, String> by lazy {
         hashMapOf(
                 "A" to "А",
                 "B" to "Б",

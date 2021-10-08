@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
+import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillic
-import com.michaeltroger.serbianlatintocyrillic.LatinToCyrillicI
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -16,7 +16,7 @@ import java.util.*
 
 class AlphabetViewModel(app: Application) : AndroidViewModel(app) {
 
-    private var converter: LatinToCyrillicI? = null
+    private var converter: LatinToCyrillic? = null
     private val _latinAlphabet = MutableLiveData<String>()
     private val _cyrillicAlphabet = MutableLiveData<String>()
     private val _alphabetName = MutableLiveData<String>()
@@ -73,15 +73,15 @@ class AlphabetViewModel(app: Application) : AndroidViewModel(app) {
 
     private suspend fun init(context: Context, language: String) = withContext(Dispatchers.IO) {
         val repo = PreferenceTools.getAlphabetRepo(context, language)
-        converter = LatinToCyrillic(repo)
+        converter = LatinToCyrillicImpl(repo)
 
         _alphabetName.postValue(PreferenceTools.getLocalizedAlphabetName(context))
         _language.postValue(language)
 
         val convert = converter
         if (convert != null) {
-            _latinAlphabet.postValue(convert.getLatinAlphabet.joinToString(separator = "\n"))
-            _cyrillicAlphabet.postValue(convert.getCyrillicAlphabet.joinToString(separator = "\n"))
+            _latinAlphabet.postValue(convert.latinAlphabet.joinToString(separator = "\n"))
+            _cyrillicAlphabet.postValue(convert.cyrillicAlphabet.joinToString(separator = "\n"))
         }
     }
 
