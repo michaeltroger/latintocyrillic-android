@@ -15,7 +15,7 @@ internal class CustomAlphabetRepoTest {
 
     @Test
     fun `Verify max latin character`() {
-        val repo = CustomAlphabetRepo(latin = listOf("a", "bc"), cyrillic = listOf("Љ", "Џ"))
+        val repo = CustomAlphabetRepo(latin = listOf("a", "bc"), cyrillic = listOf('Љ', 'Џ'))
         assertThat(repo.getCyrillicToLatinMap()).hasSize(2)
         assertThat(repo.getLatinToCyrillicMap()).hasSize(2)
 
@@ -30,7 +30,7 @@ internal class CustomAlphabetRepoTest {
 
     @Test
     fun `Verify max cyrillic character`() {
-        val repo = CustomAlphabetRepo(latin = listOf("a", "bc"), cyrillic = listOf("Љ", "Џ"))
+        val repo = CustomAlphabetRepo(latin = listOf("a", "bc"), cyrillic = listOf('Љ', 'Џ'))
         var max = 0
         repo.getCyrillicToLatinMap().keys.forEach {
             if (it.length > max) {

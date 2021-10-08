@@ -1,5 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.serbian
 
+import com.michaeltroger.serbianlatintocyrillic.Alphabet
 import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.SerbianAlphabetRepo
 import kotlinx.coroutines.runBlocking
@@ -13,7 +14,7 @@ internal class SerbianLatinToCyrillicTest {
 
     @BeforeEach
     fun setUp() {
-        converter = CyrillicImpl(SerbianAlphabetRepo())
+        converter = CyrillicImpl(Alphabet.Serbian)
     }
 
     @Test

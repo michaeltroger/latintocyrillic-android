@@ -1,5 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.macedonian.academic
 
+import com.michaeltroger.serbianlatintocyrillic.Alphabet
 import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.MacedonianAlphabetRepo
 import kotlinx.coroutines.runBlocking
@@ -13,7 +14,7 @@ internal class MacedonianCyrillicToLatinTest {
 
     @BeforeEach
     fun setUp() {
-        converter = CyrillicImpl(MacedonianAlphabetRepo())
+        converter = CyrillicImpl(Alphabet.Macedonian)
     }
 
     @Test

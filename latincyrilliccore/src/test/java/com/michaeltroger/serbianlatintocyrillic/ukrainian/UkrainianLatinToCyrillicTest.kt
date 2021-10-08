@@ -1,5 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.ukrainian
 
+import com.michaeltroger.serbianlatintocyrillic.Alphabet
 import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.UkrainianIso9AlphabetRepo
 import kotlinx.coroutines.runBlocking
@@ -13,7 +14,7 @@ internal class UkrainianLatinToCyrillicTest {
 
     @BeforeEach
     fun setUp() {
-        converter = CyrillicImpl(UkrainianIso9AlphabetRepo())
+        converter = CyrillicImpl(Alphabet.UkrainianIso9)
     }
 
     @Test

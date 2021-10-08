@@ -1,5 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.bulgarian
 
+import com.michaeltroger.serbianlatintocyrillic.Alphabet
 import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.BulgarianIso9AlphabetRepo
 import kotlinx.coroutines.runBlocking
@@ -13,7 +14,7 @@ internal class BulgarianCyrillicToLatinTest {
 
     @BeforeEach
     fun setUp() {
-        converter = CyrillicImpl(BulgarianIso9AlphabetRepo())
+        converter = CyrillicImpl(Alphabet.BulgarianIso9)
     }
 
     @Test

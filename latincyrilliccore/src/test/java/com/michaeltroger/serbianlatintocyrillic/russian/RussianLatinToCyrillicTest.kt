@@ -1,5 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.russian
 
+import com.michaeltroger.serbianlatintocyrillic.Alphabet
 import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.RussianIso9AlphabetRepo
 import kotlinx.coroutines.runBlocking
@@ -13,7 +14,7 @@ internal class RussianLatinToCyrillicTest {
 
     @BeforeEach
     fun setUp() {
-        converter = CyrillicImpl(RussianIso9AlphabetRepo())
+        converter = CyrillicImpl(Alphabet.RussianIso9)
     }
 
     @Test

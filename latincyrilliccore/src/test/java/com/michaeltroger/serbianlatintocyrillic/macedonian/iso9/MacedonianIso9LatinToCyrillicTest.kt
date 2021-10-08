@@ -1,5 +1,6 @@
 package com.michaeltroger.serbianlatintocyrillic.macedonian.iso9
 
+import com.michaeltroger.serbianlatintocyrillic.Alphabet
 import com.michaeltroger.serbianlatintocyrillic.CyrillicImpl
 import com.michaeltroger.serbianlatintocyrillic.repo.MacedonianIso9AlphabetRepo
 import kotlinx.coroutines.runBlocking
@@ -13,7 +14,7 @@ internal class MacedonianIso9LatinToCyrillicTest {
 
     @BeforeEach
     fun setUp() {
-        converter = CyrillicImpl(MacedonianIso9AlphabetRepo())
+        converter = CyrillicImpl(Alphabet.MacedonianIso9)
     }
 
     @Test
