@@ -1,7 +1,7 @@
 package com.michaeltroger.serbianlatintocyrillic.repo
 
 import com.michaeltroger.serbianlatintocyrillic.LatinCyrillicAlphabetRepo
-import java.lang.IllegalArgumentException
+import kotlin.IllegalArgumentException
 
 /**
  * Both must be of same size and correctly sorted
@@ -17,6 +17,9 @@ internal class CustomAlphabetRepo(latin: List<String>, cyrillic: List<Char>) : L
     override val latinToCyrillicAlphabet: Map<String, String> by lazy {
         var i = 0
         latin.associateWith {
+            if (it.length > 2) {
+                throw IllegalArgumentException("Only up to 2 latin characters allowed to describe a letter in alphabet. But were: Latin:${it.length}/${it}")
+            }
             cyrillic[i++].toString()
         }
     }

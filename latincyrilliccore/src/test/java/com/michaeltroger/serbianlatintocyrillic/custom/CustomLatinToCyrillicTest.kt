@@ -7,6 +7,7 @@ import com.michaeltroger.serbianlatintocyrillic.repo.SerbianAlphabetRepo
 import kotlinx.coroutines.runBlocking
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 internal class CustomLatinToCyrillicTest {
 
@@ -19,6 +20,33 @@ internal class CustomLatinToCyrillicTest {
             assertThat(converter.latinToCyrillic(",")).isEqualTo(",")
             assertThat(converter.latinToCyrillic("!")).isEqualTo("!")
             assertThat(converter.latinToCyrillic("?")).isEqualTo("?")
+        }
+    }
+
+    @Test
+    fun `Test illegal input latin shorter`() {
+        assertThrows<IllegalArgumentException> {
+            CyrillicImpl(latin = listOf("a"), cyrillic = listOf('Љ', 'Џ'))
+        }
+    }
+
+    @Test
+    fun `Test illegal input cyrillic shorter`() {
+        assertThrows<IllegalArgumentException> {
+            CyrillicImpl(latin = listOf("a", "bc"), cyrillic = listOf('Љ'))
+        }
+    }
+
+    @Test
+    fun `Test illegal input too many latin chars`() {
+        val converter = CyrillicImpl(latin = listOf("abc", "d"), cyrillic = listOf('Љ', 'Џ'))
+        runBlocking {
+            assertThrows<IllegalArgumentException> {
+                converter.latinToCyrillic("test")
+            }
+            assertThrows<IllegalArgumentException> {
+                converter.cyrillicToLatin("test")
+            }
         }
     }
 

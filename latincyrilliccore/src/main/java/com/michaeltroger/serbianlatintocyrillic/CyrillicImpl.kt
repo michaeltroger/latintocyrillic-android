@@ -9,7 +9,7 @@ internal class CyrillicImpl : Cyrillic {
     private lateinit var repo: LatinCyrillicAlphabetRepo
 
     constructor(latin: List<String>, cyrillic: List<Char>) {
-        this.repo = CustomAlphabetRepo(latin, cyrillic)
+        this.repo = CustomAlphabetRepo(latin = latin, cyrillic = cyrillic)
     }
 
     constructor(alphabet: Alphabet) {
