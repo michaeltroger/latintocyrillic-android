@@ -85,11 +85,11 @@ internal class CustomLatinToCyrillicTest {
     @Test
     fun `Test extending serbian alphabet by one letter`() {
         val serbianConverter = CyrillicImpl(Alphabet.Serbian)
-        val latin = serbianConverter.latinAlphabet
-        val cyrillic = serbianConverter.cyrillicAlphabet
-
-        val converter = CyrillicImpl(latin = latin + listOf("Dz"), cyrillic = cyrillic.map { it.toCharArray()[0] } + listOf('Ѕ'))
         runBlocking {
+            val latin = serbianConverter.getLatinAlphabet()
+            val cyrillic = serbianConverter.getCyrillicAlphabet()
+
+            val converter = CyrillicImpl(latin = latin + listOf("Dz"), cyrillic = cyrillic.map { it.toCharArray()[0] } + listOf('Ѕ'))
             assertThat(converter.latinToCyrillic(
                     """"
 A, a

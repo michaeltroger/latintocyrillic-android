@@ -14,10 +14,10 @@ internal class CustomAlphabetSortOrderTest {
     fun `Test sorted latin`() {
         val converter = CyrillicImpl(latin = listOf("x", "c", "d", "b"), cyrillic = listOf('Ћ', 'Љ', 'П', 'Џ'))
         runBlocking {
-            assertThat(converter.latinAlphabet).isEqualTo(
+            assertThat(converter.getLatinAlphabet()).isEqualTo(
                 listOf("b", "c", "d", "x")
             )
-            assertThat(converter.cyrillicAlphabet).isEqualTo(
+            assertThat(converter.getCyrillicAlphabet()).isEqualTo(
                 listOf("Џ", "Љ", "П", "Ћ")
             )
         }

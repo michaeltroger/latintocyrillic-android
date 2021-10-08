@@ -77,11 +77,12 @@ internal class CyrillicImpl : Cyrillic {
         return false
     }
 
-
-    override val latinAlphabet: List<String>
-        get() = latinToCyrillicMap.toSortedMap().keys.toList()
-
-    override val cyrillicAlphabet: List<String>
-        get() = latinToCyrillicMap.toSortedMap().values.toList()
-
+    override suspend fun getLatinAlphabet(): List<String> = withContext(Dispatchers.Default) {
+        latinToCyrillicMap.keys.sorted()
+    }
+    override suspend fun getCyrillicAlphabet(): List<String> = withContext(Dispatchers.Default) {
+        latinToCyrillicMap.keys.sorted().map {
+            latinToCyrillicMap[it] ?: ""
+        }
+    }
 }
