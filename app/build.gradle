@@ -65,7 +65,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
     implementation 'androidx.core:core-ktx:1.6.0'
 
-    implementation 'com.michaeltroger:cyrillic-transliteration:1.0-SNAPSHOT'
+    implementation 'com.michaeltroger:latin-to-cyrillic:1.0.0-SNAPSHOT'
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation 'com.vorlonsoft:androidrate:1.2.1'
 
