@@ -2,6 +2,7 @@
 [![Android CI](https://github.com/michaeltroger/latintocyrillic-android/actions/workflows/android.yml/badge.svg)](https://github.com/michaeltroger/latintocyrillic-android/actions/workflows/android.yml)
 
 Converts Latin to Cyrillic and vice versa.
+The business logic is available as separate [Kotlin Multiplatform library](https://github.com/michaeltroger/latin-to-cyrillic).
 
 [<img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
     alt="Get it on Google Play"
