@@ -1,1 +1,1 @@
-include ':app', ':latincyrilliccore'
+include ':app'
