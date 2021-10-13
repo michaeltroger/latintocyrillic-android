@@ -1,42 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!--  uris -->
+    <!-- title of views -->
     <string name="app_name">Ћирилица</string>
-
-    <!-- name views -->
     <string name="title_activity_user_setting">Поставке</string>
     <string name="title_activity_customize">Појединачна абецеда</string>
-
-    <!-- menu -->
+    <string name="title_activity_alphabet">Одабрана абецеда</string>
+    <!-- menu main -->
     <string name="copy_latin">Копирај латиницу</string>
     <string name="copy_cyrillic">Копирај ћирилицу</string>
     <string name="clear_all">Ресетуј поља</string>
     <string name="show_alphabet">Покажи абецеду</string>
-     
-    <string name="menu_settings">Поставке</string>
-
-    <!-- main activity -->
-    <string name="latin_hint">Латиница</string>
-    <string name="cyrillic_hint">Ћирилица</string>
-    <string name="latin_to_cyrillic_button">Латиница -> Ћирилицу</string>
-    <string name="cyrillic_to_latin_button">Ћирилица -> Латиницу</string>
     <string name="use_side_by_side_layout">Један поред другог поглед</string>
     <string name="use_auto_convert_layout">Аутоматска конверзија</string>
-    
-    <!-- alternative layout -->
-    <string name="auto_convert_button">Конвертирај</string>
-    <string name="auto_convert_hint">Убаци текст</string>
+    <string name="menu_settings">Поставке</string>
     <string name="copy_text">Копирај</string>
     <string name="share_text">Дели</string>
     <string name="share_latin">Дели латиницу</string>
     <string name="share_cyrillic">Дели ћирилицу</string>
-    
-    <!-- alphabet activity -->
+    <!-- menu alphabet -->
     <string name="menu_change_alphabet">Промени абецеду</string>
     <string name="menu_adapt_alphabet">Прилагоди абецеду</string>
-
+    <!-- side by side layout -->
+    <string name="latin_hint">Латиница</string>
+    <string name="cyrillic_hint">Ћирилица</string>
+    <string name="latin_to_cyrillic_button">Латиница -&gt; Ћирилицу</string>
+    <string name="cyrillic_to_latin_button">Ћирилица -&gt; Латиницу</string>
+    <!-- auto convert layout -->
+    <string name="auto_convert_button">Конвертирај</string>
+    <string name="auto_convert_hint">Убаци текст</string>
+    <!-- toast -->
     <string name="text_copied_toast">Текст је копиран</string>
-
     <!-- preferences -->
     <string name="pref_cat_update_setting">Ажурирај поставке</string>
     <string name="pref_auto_copy">Копирај текст аутоматски</string>
@@ -47,50 +41,46 @@
     <string name="pref_alt_layout_summary">Појединачан текст са аутоматским препознавањем кућаног текста</string>
     <string name="pref_language_chosen">Бирај језик/абецеда</string>
     <string name="pref_language_chosen_summary">Бирај језик/абецеда за конвертер</string>
+    <string name="pref_theme">Бирај тему апликације</string>
+    <string name="pref_theme_summary">Промени тему апликације како желиш</string>
     <string name="pref_custom_alphabet_title">Појединачна абецеда</string>
     <string name="pref_custom_alphabet_summary">Прилагоди абецеду или створи своју појединачну абецеду</string>
-
-  	<string name="title_activity_alphabet">Одабрана абецеда</string>
-  	<string name="pref_theme">Бирај тему апликације</string>
-  	<string name="pref_theme_summary">Промени тему апликације како желиш</string>
-  	
-  	<string name="pref_cat_contact">Другачије</string>
-  	<string name="contact_developer_summary">Ако имаш било каквих проблема приликом коришћења ове апликације или ако имаш предлоге за нове функције, контактирај ме путем емаила</string>
-  	<string name="contact_developer">"Контактирај програмер</string>
-  	<string name="rate_summary">Кад волиш ову апликацију, молим оцени је</string>
-  	<string name="rate">Оцени апликацију</string>
-  	
-  	<!--  languages -->
-  	<string name="serbian">Српски</string>
-    <string name="custom">Појединачно</string>
+    <string name="pref_cat_contact">Другачије</string>
+    <string name="contact_developer_summary">Ако имаш било каквих проблема приликом коришћења ове апликације или ако имаш предлоге за нове функције, контактирај ме путем емаила</string>
+    <string name="contact_developer">\"Контактирај програмер</string>
+    <string name="rate_summary">Кад волиш ову апликацију, молим оцени је</string>
+    <string name="rate">Оцени апликацију</string>
+    <string name="beta_channel_title">Beta version</string>
+    <string name="beta_channel_summary">Become a beta tester and explore the latest features. Don\'t enter the testing programme if you need a stable version</string>
+    <!--  languages -->
     <string name="belarusian_iso9">Белоруски (ISO 9:1995)</string>
     <string name="bulgarian_iso9">Бугарски (ISO 9:1995)</string>
     <string name="macedonian">Македонски (ALA-LC)</string>
     <string name="macedonian_iso9">Македонски (ISO 9:1995)</string>
     <string name="russian_iso9">Руски (ISO 9:1995)</string>
+    <string name="serbian">Српски</string>
     <string name="ukrainian_iso9">Украјински (ISO 9:1995)</string>
-
-    <string name="customize_cyrillic_hint">Ћирилица (1 слово)</string>
-    <string name="customize_latin_hint">Латиница (макс 2 слова)</string>
+    <string name="custom">Појединачно</string>
+    <!-- customize activity -->
     <string name="customize_choose_template_title">Који предложак желиш да користиш?</string>
     <string name="customize_choose_template_cancel_button">Откази</string>
-    <string name="customize_save_cta">Спреми</string>
-    <string name="customize_add_row_cta">Нови унос</string>
     <string name="customize_default_title">Примени ли ову абецеду сада за претворбу?</string>
     <string name="customize_default_ok">Да</string>
     <string name="customize_default_no">Не, касније</string>
+    <string name="customize_cyrillic_hint">Ћирилица (1 слово)</string>
+    <string name="customize_latin_hint">Латиница (макс 2 слова)</string>
     <string name="customize_overwrite_warning_title">Ово ће пребрисати твоју постојећу прилагођену абецеду</string>
     <string name="customize_overwrite_warning_ok">У реду</string>
     <string name="customize_overwrite_warning_cancel">Откази</string>
-
+    <string name="customize_add_row_cta">Нови унос</string>
+    <!-- preference screen -->
     <string name="alert_conversion_without_alphabet_title">Конверзија неће радити док не поставиш прилагођену абецеду. Постави га сада?</string>
     <string name="alert_conversion_without_alphabet_yes">Да</string>
     <string name="alert_conversion_without_alphabet_no">Не</string>
-
+    <string name="customize_save_cta">Спреми</string>
     <string name="theme_light">Светло</string>
     <string name="theme_dark">Тамно</string>
     <string name="theme_battery">Аутоматски (Штедња батерије)</string>
     <string name="theme_follow_system">Системски стандард</string>
     <string name="theme_follow_system_not_supported">Системски стандард (Не подржава се на свим уређајима)</string>
-	
 </resources>
