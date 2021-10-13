@@ -1,3 +1,7 @@
 files:
   - source: /app/src/main/res/values/strings.xml
     translation: /app/src/main/res/%two_letters_code%/strings.xml
+  - source: /fastlane/metadata/android/en-US/title.txt
+    translation: /fastlane/metadata/android/%two_letters_code%/title.txt
+  - source: /fastlane/metadata/android/en-US/short_description.txt
+    translation: /fastlane/metadata/android/%two_letters_code%/short_description.txt
