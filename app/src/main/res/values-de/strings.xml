@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!--  uris -->
+    <!-- title of views -->
     <string name="app_name">Kyrillisch</string>
-
-    <!-- name views -->
     <string name="title_activity_user_setting">Einstellungen</string>
-  	
-    <!-- menu -->
+    <string name="title_activity_customize">Eigenes Alphabet</string>
+    <string name="title_activity_alphabet">Gewähltes Alphabet</string>
+    <!-- menu main -->
     <string name="copy_latin">Lateinischen Text kopieren</string>
     <string name="copy_cyrillic">Kyrillischen Text kopieren</string>
     <string name="clear_all">Alles löschen</string>
     <string name="show_alphabet">Alphabet anzeigen</string>
-     
+    <string name="use_side_by_side_layout">Nebeneinander-Layout</string>
+    <string name="use_auto_convert_layout">Autokonvertierungs-Layout</string>
     <string name="menu_settings">Einstellungen</string>
-
-    <!-- main activity -->
-    <string name="latin_hint">Lateinischer Text</string>
-    <string name="cyrillic_hint">Kyrillischer Text</string>
-    <string name="latin_to_cyrillic_button">Lateinisch -> Kyrillisch</string>
-    <string name="cyrillic_to_latin_button">Kyrillisch -> Lateinisch</string>
-    
-    <!-- alternative layout -->
-    <string name="auto_convert_button">Konvertieren</string>
-    <string name="auto_convert_hint">Text eingeben</string>
     <string name="copy_text">Kopieren</string>
     <string name="share_text">Teilen</string>
     <string name="share_latin">Lateinischen Text teilen</string>
     <string name="share_cyrillic">Kyrillischen Text teilen</string>
-    
-    <!-- alphabet activity -->
+    <!-- menu alphabet -->
     <string name="menu_change_alphabet">Alphabet wechseln</string>
-
+    <string name="menu_adapt_alphabet">Alphabet anpassen</string>
+    <!-- side by side layout -->
+    <string name="latin_hint">Lateinischer Text</string>
+    <string name="cyrillic_hint">Kyrillischer Text</string>
+    <string name="latin_to_cyrillic_button">Lateinisch -&gt; Kyrillisch</string>
+    <string name="cyrillic_to_latin_button">Kyrillisch -&gt; Lateinisch</string>
+    <!-- auto convert layout -->
+    <string name="auto_convert_button">Konvertieren</string>
+    <string name="auto_convert_hint">Text eingeben</string>
+    <!-- toast -->
     <string name="text_copied_toast">Text wurde kopiert</string>
-
     <!-- preferences -->
     <string name="pref_cat_update_setting">Einstellungen aktualisieren</string>
     <string name="pref_auto_copy">Text automatisch kopieren</string>
@@ -43,33 +41,27 @@
     <string name="pref_alt_layout_summary">Erkennt automatisch ob es sich beim Text um Lateinisch oder Kyrillisch handelt</string>
     <string name="pref_language_chosen">Sprache/Alphabet wählen</string>
     <string name="pref_language_chosen_summary">Wähle die Sprache/das Alphabet für den Konverter</string>
-    <string name="title_activity_alphabet">Gewähltes Alphabet</string>
-  	<string name="pref_theme">Wähle das App-Theme</string>
-  	<string name="pref_theme_summary">Ändert das Theme der App nach deinem Wunsch</string>
-  	
-  	<string name="pref_cat_contact">Diverses</string>
-  	<string name="contact_developer_summary">Melde dich wenn du Fehler gefunden hast oder wenn du gerne eine neue Sprache/Funktion im Funktionsumfang sehen würdest. Melde dich auch, wenn du helfen willst die App in andere Fremdsprachen zu übersetzen</string>
-  	<string name="contact_developer">"Kontaktiere den Entwickler</string>
-  	<string name="rate_summary">Wenn du meine App gut findest, dann denke bitte darüber nach sie zu bewerten</string>
-  	<string name="rate">App bewerten</string>
+    <string name="pref_theme">Wähle das App-Theme</string>
+    <string name="pref_theme_summary">Ändert das Theme der App nach deinem Wunsch</string>
+    <string name="pref_custom_alphabet_title">Individuelles Alphabet</string>
+    <string name="pref_custom_alphabet_summary">Passe ein Alphabet deiner Wahl an oder erstelle eine Umwandlungstabelle von Grund auf</string>
+    <string name="pref_cat_contact">Diverses</string>
+    <string name="contact_developer_summary">Melde dich wenn du Fehler gefunden hast oder wenn du gerne eine neue Sprache/Funktion im Funktionsumfang sehen würdest. Melde dich auch, wenn du helfen willst die App in andere Fremdsprachen zu übersetzen</string>
+    <string name="contact_developer">\"Kontaktiere den Entwickler</string>
+    <string name="rate_summary">Wenn du meine App gut findest, dann denke bitte darüber nach sie zu bewerten</string>
+    <string name="rate">App bewerten</string>
     <string name="beta_channel_title">Beta Version</string>
     <string name="beta_channel_summary">Werde ein Beta Tester und erforsche die neuesten Funktionen. Trete dem Testprogramm nicht bei wenn du eine stabile Version benötigst</string>
-  	
-  	<!--  languages -->
-  	<string name="serbian">Serbisch</string>
-    <string name="custom">Individuell</string>
+    <!--  languages -->
     <string name="belarusian_iso9">Weißrussisch (ISO 9:1995)</string>
     <string name="bulgarian_iso9">Bulgarisch (ISO 9:1995)</string>
     <string name="macedonian">Mazedonisch (ALA-LC)</string>
     <string name="macedonian_iso9">Mazedonisch (ISO 9:1995)</string>
     <string name="russian_iso9">Russisch (ISO 9:1995)</string>
+    <string name="serbian">Serbisch</string>
     <string name="ukrainian_iso9">Ukrainisch (ISO 9:1995)</string>
-
-    <string name="use_side_by_side_layout">Nebeneinander-Layout</string>
-    <string name="use_auto_convert_layout">Autokonvertierungs-Layout</string>
-    <string name="menu_adapt_alphabet">Alphabet anpassen</string>
-
-    <string name="title_activity_customize">Eigenes Alphabet</string>
+    <string name="custom">Individuell</string>
+    <!-- customize activity -->
     <string name="customize_choose_template_title">Welche Vorlage möchtest du verwenden?</string>
     <string name="customize_choose_template_cancel_button">Abbrechen</string>
     <string name="customize_default_title">Dein individuelles Alphabet wurde erfolgreich gespeichert. Möchtest du dieses Alphabet nun zur Konvertierung verwenden?</string>
@@ -80,16 +72,12 @@
     <string name="customize_overwrite_warning_title">Diese Operation wird dein existierendes, individuelles Alphabet überschreiben</string>
     <string name="customize_overwrite_warning_ok">OK</string>
     <string name="customize_overwrite_warning_cancel">Abbrechen</string>
-    <string name="customize_save_cta">Speichern</string>
     <string name="customize_add_row_cta">Neue Zeile</string>
-
-    <string name="pref_custom_alphabet_title">Individuelles Alphabet</string>
-    <string name="pref_custom_alphabet_summary">Passe ein Alphabet deiner Wahl an oder erstelle eine Umwandlungstabelle von Grund auf</string>
-
+    <!-- preference screen -->
     <string name="alert_conversion_without_alphabet_title">Die Konvertierung funktioniert nicht, solange du kein individuelles Alphabet erstellt hast. Willst du jetzt eines erstellen?</string>
     <string name="alert_conversion_without_alphabet_yes">Ja</string>
     <string name="alert_conversion_without_alphabet_no">Nein</string>
-
+    <string name="customize_save_cta">Speichern</string>
     <string name="theme_light">Hell</string>
     <string name="theme_dark">Dunkel</string>
     <string name="theme_battery">Abhängig vom Energiesparmodus</string>
