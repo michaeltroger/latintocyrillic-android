@@ -63,8 +63,6 @@
     <string name="contact_developer">"Contact developer</string>
     <string name="rate_summary">If you like my app, please consider rating it</string>
     <string name="rate">Rate this app</string>
-    <string name="beta_channel_title">Beta version</string>
-    <string name="beta_channel_summary">Become a beta tester and explore the latest features. Don\'t enter the testing programme if you need a stable version</string>
 
     <!--  languages -->
     <string name="belarusian_iso9">Belarusian (ISO 9:1995)</string>

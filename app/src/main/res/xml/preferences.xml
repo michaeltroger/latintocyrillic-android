@@ -52,13 +52,6 @@
 	   		 <intent android:action="android.intent.action.VIEW"
 	            android:data="@string/rate_uri"/>
          </Preference>
-         <Preference
-             android:key="betaChannelKey"
-             android:title="@string/beta_channel_title"
-             android:summary="@string/beta_channel_summary">
-             <intent android:action="android.intent.action.VIEW"
-                 android:data="@string/beta_channel_uri"/>
-         </Preference>
       
 	 </PreferenceCategory>
  
