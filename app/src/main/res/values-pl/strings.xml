@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  uris -->
+    <!-- title of views -->
+    <string name="app_name">Cyrillic</string>
+    <string name="title_activity_user_setting">Settings</string>
+    <string name="title_activity_customize">Custom Alphabet</string>
+    <string name="title_activity_alphabet">Chosen Alphabet</string>
+    <!-- menu main -->
+    <string name="copy_latin">Copy Latin text</string>
+    <string name="copy_cyrillic">Copy Cyrillic text</string>
+    <string name="clear_all">Clear all</string>
+    <string name="show_alphabet">Show alphabet</string>
+    <string name="use_side_by_side_layout">Use side by side layout</string>
+    <string name="use_auto_convert_layout">Use auto convert layout</string>
+    <string name="menu_settings">Settings</string>
+    <string name="copy_text">Copy</string>
+    <string name="share_text">Share</string>
+    <string name="share_latin">Share Latin Text</string>
+    <string name="share_cyrillic">Share Cyrillic text</string>
+    <!-- menu alphabet -->
+    <string name="menu_change_alphabet">Switch alphabet</string>
+    <string name="menu_adapt_alphabet">Adapt this alphabet</string>
+    <!-- side by side layout -->
+    <string name="latin_hint">Latin text</string>
+    <string name="cyrillic_hint">Cyrillic text</string>
+    <string name="latin_to_cyrillic_button">Latin -&gt; Cyrillic</string>
+    <string name="cyrillic_to_latin_button">Cyrillic -&gt; Latin</string>
+    <!-- auto convert layout -->
+    <string name="auto_convert_button">Convert</string>
+    <string name="auto_convert_hint">Insert text</string>
+    <!-- toast -->
+    <string name="text_copied_toast">Copied text</string>
+    <!-- preferences -->
+    <string name="pref_cat_update_setting">Update Settings</string>
+    <string name="pref_auto_copy">Auto copy text</string>
+    <string name="pref_auto_copy_summary">Auto copy converted text to clipboard</string>
+    <string name="pref_exit">Remember text</string>
+    <string name="pref_exit_summary">Restore the last inserted text when reopening the app</string>
+    <string name="pref_alt_layout">Use auto convert layout</string>
+    <string name="pref_alt_layout_summary">Auto detects if text is Latin or Cyrillic</string>
+    <string name="pref_language_chosen">Choose language/alphabet</string>
+    <string name="pref_language_chosen_summary">Choose the language/alphabet for the converter</string>
+    <string name="pref_theme">Choose app-theme</string>
+    <string name="pref_theme_summary">Changes the theme of the app to your choice</string>
+    <string name="pref_custom_alphabet_title">Custom alphabet</string>
+    <string name="pref_custom_alphabet_summary">Adapt an alphabet of your choice or build your own conversion table from scratch</string>
+    <string name="pref_cat_contact">Miscellaneous</string>
+    <string name="contact_developer_summary">Tell me if you found any bugs or if you\'d like to see a new language/feature. Also contact me if you\'d like to help the app being translated</string>
+    <string name="contact_developer">\"Contact developer</string>
+    <string name="rate_summary">If you like my app, please consider rating it</string>
+    <string name="rate">Rate this app</string>
+    <string name="beta_channel_title">Beta version</string>
+    <string name="beta_channel_summary">Become a beta tester and explore the latest features. Don\'t enter the testing programme if you need a stable version</string>
+    <!--  languages -->
+    <string name="belarusian_iso9">Belarusian (ISO 9:1995)</string>
+    <string name="bulgarian_iso9">Bulgarian (ISO 9:1995)</string>
+    <string name="macedonian">Macedonian (ALA-LC)</string>
+    <string name="macedonian_iso9">Macedonian (ISO 9:1995)</string>
+    <string name="russian_iso9">Russian (ISO 9:1995)</string>
+    <string name="serbian">Serbian</string>
+    <string name="ukrainian_iso9">Ukrainian (ISO 9:1995)</string>
+    <string name="custom">Custom</string>
+    <!-- customize activity -->
+    <string name="customize_choose_template_title">Which template do you want to use?</string>
+    <string name="customize_choose_template_cancel_button">Cancel</string>
+    <string name="customize_default_title">Your custom alphabet was saved successfully. Apply this alphabet now for conversion?</string>
+    <string name="customize_default_ok">Yes, apply it</string>
+    <string name="customize_default_no">No, I\'ll use it later</string>
+    <string name="customize_cyrillic_hint">Cyrillic (1 char.)</string>
+    <string name="customize_latin_hint">Latin (max 2 char.)</string>
+    <string name="customize_overwrite_warning_title">This will overwrite your existing custom alphabet</string>
+    <string name="customize_overwrite_warning_ok">OK</string>
+    <string name="customize_overwrite_warning_cancel">Cancel</string>
+    <string name="customize_add_row_cta">Add row</string>
+    <!-- preference screen -->
+    <string name="alert_conversion_without_alphabet_title">Conversion won\'t work until you set a custom alphabet. Set it now?</string>
+    <string name="alert_conversion_without_alphabet_yes">Yes</string>
+    <string name="alert_conversion_without_alphabet_no">No</string>
+    <string name="customize_save_cta">Save</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_battery">Set by Battery Saver</string>
+    <string name="theme_follow_system">System default</string>
+    <string name="theme_follow_system_not_supported">System default (Not supported on all devices)</string>
+</resources>
