@@ -1,7 +1,7 @@
-# Cyrillic Transliterator: Latin To Cyrillic Android App
+# Cyrillic To Latin Android App
 [![Android CI](https://github.com/michaeltroger/latintocyrillic-android/actions/workflows/android.yml/badge.svg)](https://github.com/michaeltroger/latintocyrillic-android/actions/workflows/android.yml) [![Crowdin](https://badges.crowdin.net/latin-to-cyrillic/localized.svg)](https://crowdin.com/project/latin-to-cyrillic)
 
-Converts Latin to Cyrillic and vice versa.
+A Cyrillic transliterator that converts Latin to Cyrillic and vice versa.
 
 Help translating the app: https://crwd.in/latin-to-cyrillic
 
