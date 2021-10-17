@@ -4,8 +4,6 @@
     <!--  uris -->
     <string name="contact_developer_uri" translatable="false">mailto:cyrillic@troger.app</string>
     <string name="rate_uri" translatable="false">https://play.google.com/store/apps/details?id=at.mikenet.serbianlatintocyrillic</string>
-    <string name="conversion_info_uri" translatable="false">https://www.loc.gov/catdir/cpso/roman.html</string>
-    <string name="beta_channel_uri" translatable="false">https://play.google.com/apps/testing/at.mikenet.serbianlatintocyrillic</string>
 
     <!-- title of views -->
     <string name="app_name">Cyrillic</string>
