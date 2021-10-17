@@ -4,6 +4,8 @@
     <!--  uris -->
     <string name="contact_developer_uri" translatable="false">mailto:cyrillic@troger.app</string>
     <string name="rate_uri" translatable="false">https://play.google.com/store/apps/details?id=at.mikenet.serbianlatintocyrillic</string>
+    <string name="help_translating_uri" translatable="false">https://crwd.in/latin-to-cyrillic</string>
+    <string name="contributing_uri" translatable="false">https://github.com/michaeltroger/latintocyrillic-android</string>
 
     <!-- title of views -->
     <string name="app_name">Cyrillic</string>
@@ -57,9 +59,9 @@
     <string name="pref_custom_alphabet_summary">Adapt an alphabet of your choice or build your own conversion table from scratch</string>
 
     <string name="pref_cat_contact">Miscellaneous</string>
-    <string name="contact_developer_summary">Tell me if you found any bugs or if you\'d like to see a new language/feature. Also contact me if you\'d like to help the app being translated</string>
+    <string name="contact_developer_summary">Any problem using the app? Let me try helping you</string>
     <string name="contact_developer">"Contact developer</string>
-    <string name="rate_summary">If you like my app, please consider rating it</string>
+    <string name="rate_summary">If you like this app, please consider rating it</string>
     <string name="rate">Rate this app</string>
 
     <!--  languages -->
@@ -96,5 +98,9 @@
     <string name="theme_battery">Set by Battery Saver</string>
     <string name="theme_follow_system">System default</string>
     <string name="theme_follow_system_not_supported">System default (Not supported on all devices)</string>
+    <string name="help_translating">Help localizing</string>
+    <string name="help_translating_summary">Translate the app into your native language</string>
+    <string name="contributing">Contribute</string>
+    <string name="contributing_summary">This app is open-source. Contribute!</string>
 
 </resources>

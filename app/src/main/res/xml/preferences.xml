@@ -52,6 +52,20 @@
 	   		 <intent android:action="android.intent.action.VIEW"
 	            android:data="@string/rate_uri"/>
          </Preference>
+         <Preference
+             android:key="translateKey"
+             android:title="@string/help_translating"
+             android:summary="@string/help_translating_summary">
+             <intent android:action="android.intent.action.VIEW"
+                 android:data="@string/help_translating_uri"/>
+         </Preference>
+         <Preference
+             android:key="contributeKey"
+             android:title="@string/contributing"
+             android:summary="@string/contributing_summary">
+             <intent android:action="android.intent.action.VIEW"
+                 android:data="@string/contributing_uri"/>
+         </Preference>
       
 	 </PreferenceCategory>
  
