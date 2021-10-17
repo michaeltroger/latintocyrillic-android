@@ -46,12 +46,10 @@
     <string name="pref_custom_alphabet_title">Pojedinačna abeceda</string>
     <string name="pref_custom_alphabet_summary">Prilagodi abecedu ili stvori svoju pojedinačnu abecedu</string>
     <string name="pref_cat_contact">Drugačije</string>
-    <string name="contact_developer_summary">Ako imaš bilo kakvih problema prilikom korišćenja ove aplikacije ili ako imaš predloge za nove funkcije, kontaktiraj me putem emaila</string>
+    <string name="contact_developer_summary">Any problem using the app? Let me try helping you</string>
     <string name="contact_developer">\"Kontaktiraj programer</string>
-    <string name="rate_summary">Kad voliš ovu aplikaciju, molim ocijeni je</string>
+    <string name="rate_summary">If you like this app, please consider rating it</string>
     <string name="rate">Ocijeni aplikaciju</string>
-    <string name="beta_channel_title">Beta version</string>
-    <string name="beta_channel_summary">Become a beta tester and explore the latest features. Don\'t enter the testing programme if you need a stable version</string>
     <!--  languages -->
     <string name="belarusian_iso9">Bjeloruski (ISO 9:1995)</string>
     <string name="bulgarian_iso9">Bugarski (ISO 9:1995)</string>
@@ -83,4 +81,8 @@
     <string name="theme_battery">Automatski (Štednja baterije)</string>
     <string name="theme_follow_system">Sistemski standard</string>
     <string name="theme_follow_system_not_supported">Sistemski standard (Ne podržava se na svim uređajima)</string>
+    <string name="help_translating">Help localizing</string>
+    <string name="help_translating_summary">Translate the app into your native language</string>
+    <string name="contributing">Contribute</string>
+    <string name="contributing_summary">This app is open-source. Contribute!</string>
 </resources>
