@@ -1,1 +1,1 @@
-Converts Latin to Cyrillic and vice versa.
+Transliterator for Latin to Cyrillic and vice versa.
