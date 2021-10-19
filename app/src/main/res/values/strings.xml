@@ -53,7 +53,7 @@
 
     <string name="pref_cat_contact">Miscellaneous</string>
     <string name="contact_developer_summary">Any problem using the app? Let me try helping you</string>
-    <string name="contact_developer">"Contact developer</string>
+    <string name="contact_developer">Contact developer</string>
     <string name="rate_summary">If you like this app, please consider rating it</string>
     <string name="rate">Rate this app</string>
 
