@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <!--  uris -->
-    <string name="contact_developer_uri" translatable="false">mailto:cyrillic@troger.app</string>
-    <string name="rate_uri" translatable="false">https://play.google.com/store/apps/details?id=at.mikenet.serbianlatintocyrillic</string>
-    <string name="help_translating_uri" translatable="false">https://crwd.in/latin-to-cyrillic</string>
-    <string name="contributing_uri" translatable="false">https://github.com/michaeltroger/latintocyrillic-android</string>
-
     <!-- title of views -->
     <string name="app_name">Cyrillic</string>
     <string name="title_activity_user_setting">Settings</string>
