@@ -45,9 +45,9 @@
     <string name="pref_custom_alphabet_title">Pojedinačna abeceda</string>
     <string name="pref_custom_alphabet_summary">Prilagodi abecedu ili stvori svoju pojedinačnu abecedu</string>
     <string name="pref_cat_contact">Drugačije</string>
-    <string name="contact_developer_summary">Any problem using the app? Let me try helping you</string>
-    <string name="contact_developer">Contact developer</string>
-    <string name="rate_summary">If you like this app, please consider rating it</string>
+    <string name="contact_developer_summary">Ako imaš bilo kakvih problema prilikom korišćenja ove aplikacije</string>
+    <string name="contact_developer">Kontaktiraj programer</string>
+    <string name="rate_summary">Kad voliš ovu aplikaciju, molim ocijeni je</string>
     <string name="rate">Ocijeni aplikaciju</string>
     <!--  languages -->
     <string name="belarusian_iso9">Bjeloruski (ISO 9:1995)</string>
