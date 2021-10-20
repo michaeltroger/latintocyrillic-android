@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--  uris -->
     <!-- title of views -->
     <string name="app_name">Kyrillisch</string>
     <string name="title_activity_user_setting">Einstellungen</string>
@@ -46,12 +45,10 @@
     <string name="pref_custom_alphabet_title">Individuelles Alphabet</string>
     <string name="pref_custom_alphabet_summary">Passe ein Alphabet deiner Wahl an oder erstelle eine Umwandlungstabelle von Grund auf</string>
     <string name="pref_cat_contact">Diverses</string>
-    <string name="contact_developer_summary">Melde dich wenn du Fehler gefunden hast oder wenn du gerne eine neue Sprache/Funktion im Funktionsumfang sehen würdest. Melde dich auch, wenn du helfen willst die App in andere Fremdsprachen zu übersetzen</string>
-    <string name="contact_developer">\"Kontaktiere den Entwickler</string>
-    <string name="rate_summary">Wenn du meine App gut findest, dann denke bitte darüber nach sie zu bewerten</string>
+    <string name="contact_developer_summary">Probleme bei Verwendung der App? Lass mich helfen</string>
+    <string name="contact_developer">Entwickler kontaktieren</string>
+    <string name="rate_summary">Wenn dir diese App gefällt, erwäge bitte eine Bewertung</string>
     <string name="rate">App bewerten</string>
-    <string name="beta_channel_title">Beta Version</string>
-    <string name="beta_channel_summary">Werde ein Beta Tester und erforsche die neuesten Funktionen. Trete dem Testprogramm nicht bei wenn du eine stabile Version benötigst</string>
     <!--  languages -->
     <string name="belarusian_iso9">Weißrussisch (ISO 9:1995)</string>
     <string name="bulgarian_iso9">Bulgarisch (ISO 9:1995)</string>
@@ -83,4 +80,8 @@
     <string name="theme_battery">Abhängig vom Energiesparmodus</string>
     <string name="theme_follow_system">System Standard</string>
     <string name="theme_follow_system_not_supported">System Standard (Nicht auf allen Geräten unterstützt)</string>
+    <string name="help_translating">Hilf bei der Lokalisierung</string>
+    <string name="help_translating_summary">Übersetze die App in deine Muttersprache</string>
+    <string name="contributing">Hilf beim Programmieren</string>
+    <string name="contributing_summary">Diese App ist Open-Source. Jetzt mitwirken!</string>
 </resources>
