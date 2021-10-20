@@ -93,7 +93,7 @@
     <string name="theme_follow_system_not_supported">System default (Not supported on all devices)</string>
     <string name="help_translating">Help localizing</string>
     <string name="help_translating_summary">Translate the app into your native language</string>
-    <string name="contributing">Contribute</string>
-    <string name="contributing_summary">This app is open-source. Contribute!</string>
+    <string name="contributing">Help coding</string>
+    <string name="contributing_summary">This app is open-source. Contribute code!</string>
 
 </resources>
