@@ -67,7 +67,7 @@
     <string name="customize_cyrillic_hint">Ćirilica (1 slovo)</string>
     <string name="customize_latin_hint">Latinica (maks 2 slova)</string>
     <string name="customize_overwrite_warning_title">Ovo će prebrisati tvoju postojeću prilagođenu abecedu</string>
-    <string name="customize_overwrite_warning_ok">OK</string>
+    <string name="customize_overwrite_warning_ok">U redu</string>
     <string name="customize_overwrite_warning_cancel">Otkazi</string>
     <string name="customize_add_row_cta">Novi unos</string>
     <!-- preference screen -->
