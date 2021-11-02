@@ -50,25 +50,25 @@
     <string name="rate_summary">If you like this app, please consider rating it</string>
     <string name="rate">Rate this app</string>
     <!--  languages -->
-    <string name="belarusian_iso9">Belarusian (ISO 9:1995)</string>
-    <string name="bulgarian_iso9">Bulgarian (ISO 9:1995)</string>
-    <string name="macedonian">Macedonian (ALA-LC)</string>
-    <string name="macedonian_iso9">Macedonian (ISO 9:1995)</string>
-    <string name="russian_iso9">Russian (ISO 9:1995)</string>
-    <string name="serbian">Serbian</string>
-    <string name="ukrainian_iso9">Ukrainian (ISO 9:1995)</string>
+    <string name="belarusian_iso9">Білоруська (ISO 9:1995)</string>
+    <string name="bulgarian_iso9">Болгарська (ISO 9:1995)</string>
+    <string name="macedonian">Македонська (ALA-LC)</string>
+    <string name="macedonian_iso9">Македонська (ISO 9:1995)</string>
+    <string name="russian_iso9">Російська (ISO 9:1995)</string>
+    <string name="serbian">Сербська</string>
+    <string name="ukrainian_iso9">Українська (ISO 9:1995)</string>
     <string name="custom">Custom</string>
     <!-- customize activity -->
     <string name="customize_choose_template_title">Which template do you want to use?</string>
-    <string name="customize_choose_template_cancel_button">Cancel</string>
+    <string name="customize_choose_template_cancel_button">Скасувати</string>
     <string name="customize_default_title">Your custom alphabet was saved successfully. Apply this alphabet now for conversion?</string>
     <string name="customize_default_ok">Yes, apply it</string>
     <string name="customize_default_no">No, I\'ll use it later</string>
-    <string name="customize_cyrillic_hint">Cyrillic (1 char.)</string>
-    <string name="customize_latin_hint">Latin (max 2 char.)</string>
+    <string name="customize_cyrillic_hint">Кирилиця (1 знак)</string>
+    <string name="customize_latin_hint">Латиниця (макс. 2 знаки)</string>
     <string name="customize_overwrite_warning_title">This will overwrite your existing custom alphabet</string>
-    <string name="customize_overwrite_warning_ok">OK</string>
-    <string name="customize_overwrite_warning_cancel">Cancel</string>
+    <string name="customize_overwrite_warning_ok">Добре</string>
+    <string name="customize_overwrite_warning_cancel">Скасувати</string>
     <string name="customize_add_row_cta">Add row</string>
     <!-- preference screen -->
     <string name="alert_conversion_without_alphabet_title">Conversion won\'t work until you set a custom alphabet. Set it now?</string>
