@@ -45,8 +45,8 @@
     <string name="pref_custom_alphabet_title">Individuelles Alphabet</string>
     <string name="pref_custom_alphabet_summary">Passe ein Alphabet deiner Wahl an oder erstelle eine Umwandlungstabelle von Grund auf</string>
     <string name="pref_cat_contact">Diverses</string>
-    <string name="contact_developer_summary">Probleme bei Verwendung der App? Lass mich helfen</string>
-    <string name="contact_developer">Entwickler kontaktieren</string>
+    <string name="report_issue_summary">Probleme bei Verwendung der App? Lass mich helfen</string>
+    <string name="report_issue">Entwickler kontaktieren</string>
     <string name="rate_summary">Wenn dir diese App gefällt, erwäge bitte eine Bewertung</string>
     <string name="rate">App bewerten</string>
     <!--  languages -->

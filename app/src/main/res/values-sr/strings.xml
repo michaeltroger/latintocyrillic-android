@@ -45,8 +45,8 @@
     <string name="pref_custom_alphabet_title">Појединачна абецеда</string>
     <string name="pref_custom_alphabet_summary">Прилагоди абецеду или створи своју појединачну абецеду</string>
     <string name="pref_cat_contact">Другачије</string>
-    <string name="contact_developer_summary">Ако имаш било каквих проблема приликом коришћења ове апликације</string>
-    <string name="contact_developer">Контактирај програмер</string>
+    <string name="report_issue_summary">Ако имаш било каквих проблема приликом коришћења ове апликације</string>
+    <string name="report_issue">Контактирај програмер</string>
     <string name="rate_summary">Кад волиш ову апликацију, молим оцени је</string>
     <string name="rate">Оцени апликацију</string>
     <!--  languages -->
