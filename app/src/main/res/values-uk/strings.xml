@@ -45,7 +45,7 @@
     <string name="pref_custom_alphabet_title">Власний алфавіт</string>
     <string name="pref_custom_alphabet_summary">Пристосуйте алфавіт на свій вибір або складіть власну таблицю перетворення з нуля</string>
     <string name="pref_cat_contact">Різне</string>
-    <string name="report_issue_summary">Є проблеми з використанням застосунку? Дозвольте мені допомогти Вам</string>
+    <string name="report_issue_summary">Any problem using the app? Let me try to help you</string>
     <string name="report_issue">Звіт про ваду</string>
     <string name="rate_summary">Якщо Вам подобається мій застосунок, оцініть його</string>
     <string name="rate">Оцінити застосунок</string>
