@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- title of views -->
+    <string name="app_name">Кирилиця</string>
+    <string name="title_activity_user_setting">Налаштування</string>
+    <string name="title_activity_customize">Власний алфавіт</string>
+    <string name="title_activity_alphabet">Вибраний алфавіт</string>
+    <!-- menu main -->
+    <string name="copy_latin">Копіювати латинський текст</string>
+    <string name="copy_cyrillic">Копіювати кириличний текст</string>
+    <string name="clear_all">Очистити все</string>
+    <string name="show_alphabet">Показати алфавіт</string>
+    <string name="use_side_by_side_layout">Вигляд пліч-о-пліч</string>
+    <string name="use_auto_convert_layout">Вигляд самоперетворення</string>
+    <string name="menu_settings">Налаштування</string>
+    <string name="copy_text">Копіювати</string>
+    <string name="share_text">Поширити</string>
+    <string name="share_latin">Поширити латинський текст</string>
+    <string name="share_cyrillic">Поширити кириличний текст</string>
+    <!-- menu alphabet -->
+    <string name="menu_change_alphabet">Змінити алфавіт</string>
+    <string name="menu_adapt_alphabet">Пристосувати цей алфавіт</string>
+    <!-- side by side layout -->
+    <string name="latin_hint">Латинський текст</string>
+    <string name="cyrillic_hint">Кириличний текст</string>
+    <string name="latin_to_cyrillic_button">Латиниця -&gt; Кирилиця</string>
+    <string name="cyrillic_to_latin_button">Кирилиця -&gt; Латиниця</string>
+    <!-- auto convert layout -->
+    <string name="auto_convert_button">Перетворити</string>
+    <string name="auto_convert_hint">Вставте текст</string>
+    <!-- toast -->
+    <string name="text_copied_toast">Текст скопійовано</string>
+    <!-- preferences -->
+    <string name="pref_cat_update_setting">Оновити налаштування</string>
+    <string name="pref_auto_copy">Автокопіювання тексту</string>
+    <string name="pref_auto_copy_summary">Автокопіювання перетвореного тексту до буфера обміну</string>
+    <string name="pref_exit">Памʼятати текст</string>
+    <string name="pref_exit_summary">Відновлювати останній вставлений текст під час відкривання застосунку</string>
+    <string name="pref_alt_layout">Вигляд самоперетворення</string>
+    <string name="pref_alt_layout_summary">Автовизначення тексту — латиниця чи кирилиця</string>
+    <string name="pref_language_chosen">Оберіть мову/алфавіт</string>
+    <string name="pref_language_chosen_summary">Обрати мову/алфавіт для перетворювача</string>
+    <string name="pref_theme">Обрати тему</string>
+    <string name="pref_theme_summary">Змінює тему застосунку на Ваш вибір</string>
+    <string name="pref_custom_alphabet_title">Власний алфавіт</string>
+    <string name="pref_custom_alphabet_summary">Пристосуйте алфавіт на свій вибір або складіть власну таблицю перетворення з нуля</string>
+    <string name="pref_cat_contact">Різне</string>
+    <string name="report_issue_summary">Є проблеми з використанням додатку? Дозвольте мені допомогти</string>
+    <string name="report_issue">Звіт про ваду</string>
+    <string name="rate_summary">Якщо Вам подобається мій застосунок, оцініть його</string>
+    <string name="rate">Оцінити застосунок</string>
+    <!--  languages -->
+    <string name="belarusian_iso9">Білоруська (ISO 9:1995)</string>
+    <string name="bulgarian_iso9">Болгарська (ISO 9:1995)</string>
+    <string name="macedonian">Македонська (ALA-LC)</string>
+    <string name="macedonian_iso9">Македонська (ISO 9:1995)</string>
+    <string name="russian_iso9">Російська (ISO 9:1995)</string>
+    <string name="serbian">Сербська</string>
+    <string name="ukrainian_iso9">Українська (ISO 9:1995)</string>
+    <string name="custom">Власний</string>
+    <!-- customize activity -->
+    <string name="customize_choose_template_title">Який шаблон бажаєте використовувати?</string>
+    <string name="customize_choose_template_cancel_button">Скасувати</string>
+    <string name="customize_default_title">Ваш власний алфавіт вдало збережено. Задіяти цей алфавіт зараз для перетворення?</string>
+    <string name="customize_default_ok">Так, задіяти</string>
+    <string name="customize_default_no">Ні, я використаю потім</string>
+    <string name="customize_cyrillic_hint">Кирилиця (1 знак)</string>
+    <string name="customize_latin_hint">Латиниця (макс. 2 знаки)</string>
+    <string name="customize_overwrite_warning_title">Це перезапише Ваш наявний власний алфавіт</string>
+    <string name="customize_overwrite_warning_ok">Добре</string>
+    <string name="customize_overwrite_warning_cancel">Скасувати</string>
+    <string name="customize_add_row_cta">Додати рядок</string>
+    <!-- preference screen -->
+    <string name="alert_conversion_without_alphabet_title">Перетворення не працюватиме, доки Ви не вкажете власний алфавіт. Вказати зараз?</string>
+    <string name="alert_conversion_without_alphabet_yes">Так</string>
+    <string name="alert_conversion_without_alphabet_no">Ні</string>
+    <string name="customize_save_cta">Зберегти</string>
+    <string name="theme_light">Світла</string>
+    <string name="theme_dark">Темна</string>
+    <string name="theme_battery">Задана зберігачем батареї</string>
+    <string name="theme_follow_system">Системна</string>
+    <string name="theme_follow_system_not_supported">Системна (не підтримується на всіх пристроях)</string>
+    <string name="help_translating">Допомогти з локалізацією</string>
+    <string name="help_translating_summary">Перекладіть цей застосунок своєю мовою</string>
+    <string name="contributing">Допомогти з кодом</string>
+    <string name="contributing_summary">Цей застосунок із відкритим кодом. Внесіть свій код!</string>
+</resources>
