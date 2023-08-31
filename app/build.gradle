@@ -33,6 +33,7 @@ android {
         }
         versionCode 59
         versionName "5.4.2"
+        resConfigs "en", "de", "hr", "sr", "uk"
     }
 
     buildTypes {
