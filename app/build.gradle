@@ -31,9 +31,8 @@ android {
             sourceCompatibility JavaVersion.VERSION_11
             targetCompatibility JavaVersion.VERSION_11
         }
-        versionCode 58
-        versionName "5.4.1"
-        resConfigs "en", "de", "hr", "sr"
+        versionCode 59
+        versionName "5.4.2"
     }
 
     buildTypes {

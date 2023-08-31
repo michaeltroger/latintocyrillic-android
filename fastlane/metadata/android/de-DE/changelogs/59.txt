@@ -1,0 +1,2 @@
+- Unterstützung für Android 13
+- Ukrainische Übersetzung hinzugefügt
