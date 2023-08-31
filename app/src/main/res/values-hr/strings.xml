@@ -46,7 +46,7 @@
     <string name="pref_custom_alphabet_summary">Prilagodi abecedu ili stvori svoju pojedinačnu abecedu</string>
     <string name="pref_cat_contact">Drugačije</string>
     <string name="report_issue_summary">Ako imaš bilo kakvih problema prilikom korišćenja ove aplikacije</string>
-    <string name="report_issue">Kontaktiraj programer</string>
+    <string name="report_issue">Prijavi problem</string>
     <string name="rate_summary">Kad voliš ovu aplikaciju, molim ocijeni je</string>
     <string name="rate">Ocijeni aplikaciju</string>
     <!--  languages -->
