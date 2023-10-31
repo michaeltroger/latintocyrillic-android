@@ -12,15 +12,17 @@ import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.customize.CustomizeActivity
 import at.mikenet.serbianlatintocyrillic.customize.CustomizeFragment
+import at.mikenet.serbianlatintocyrillic.databinding.FragmentAlphabetBinding
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
-import kotlinx.android.synthetic.main.fragment_alphabet.*
 
 
 class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener {
 
     private var shouldUpdateLanguage = false
     private val viewModel by viewModels<AlphabetViewModel>()
+
+    private lateinit var binding: FragmentAlphabetBinding
 
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
         when (key) {
@@ -33,22 +35,23 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_alphabet, container, false)
+        binding = FragmentAlphabetBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.alphabetName().observe(viewLifecycleOwner, Observer {
-            alphabet_name.text = it
+            binding.alphabetName.text = it
         })
 
         viewModel.latinAlphabet().observe(viewLifecycleOwner, Observer {
-            alphabet_l.text = it
+            binding.alphabetL.text = it
         })
 
         viewModel.cyrillicAlphabet().observe(viewLifecycleOwner, Observer {
-            alphabet_c.text = it
+            binding.alphabetC.text = it
         })
 
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this)
