@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <PreferenceCategory android:title="@string/pref_cat_update_setting" >
+    <PreferenceCategory android:title="@string/pref_cat_update_setting"
+        app:iconSpaceReserved="false">
         <ListPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="serbian"
             android:key="prefLanguageChosen"
             android:entries="@array/languageChosen"
@@ -10,26 +13,31 @@
             android:entryValues="@array/languageChosenValues"
             android:title="@string/pref_language_chosen" />
         <Preference
+            app:iconSpaceReserved="false"
             android:key="customAlphabet"
             android:title="@string/pref_custom_alphabet_title"
             android:summary="@string/pref_custom_alphabet_summary"/>
         <ListPreference
+            app:iconSpaceReserved="false"
             android:key="prefThemeNight"
             android:summary="@string/pref_theme_summary"
             android:title="@string/pref_theme" />
         <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:key="prefAltLayout"
             android:summary="@string/pref_alt_layout_summary"
             android:title="@string/pref_alt_layout" >
         </CheckBoxPreference>
         <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:key="prefAutoCopy"
             android:summary="@string/pref_auto_copy_summary"
             android:title="@string/pref_auto_copy" >
         </CheckBoxPreference>
         <CheckBoxPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="prefOnExit"
             android:summary="@string/pref_exit_summary"
@@ -37,8 +45,10 @@
         </CheckBoxPreference>
 
     </PreferenceCategory>
-     <PreferenceCategory android:title="@string/pref_cat_contact" >
+     <PreferenceCategory android:title="@string/pref_cat_contact"
+         app:iconSpaceReserved="false">
         <Preference
+            app:iconSpaceReserved="false"
 	        android:key="contactDevKey"
 	        android:title="@string/report_issue"
 	        android:summary="@string/report_issue_summary">
@@ -46,6 +56,7 @@
 	            android:data="@string/issues_uri"/>
          </Preference>
          <Preference
+             app:iconSpaceReserved="false"
 	        android:key="rateKey"
 	        android:title="@string/rate"
 	        android:summary="@string/rate_summary">
@@ -53,6 +64,7 @@
 	            android:data="@string/rate_uri"/>
          </Preference>
          <Preference
+             app:iconSpaceReserved="false"
              android:key="translateKey"
              android:title="@string/help_translating"
              android:summary="@string/help_translating_summary">
@@ -60,6 +72,7 @@
                  android:data="@string/help_translating_uri"/>
          </Preference>
          <Preference
+             app:iconSpaceReserved="false"
              android:key="contributeKey"
              android:title="@string/contributing"
              android:summary="@string/contributing_summary">
