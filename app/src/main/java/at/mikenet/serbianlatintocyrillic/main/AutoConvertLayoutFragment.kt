@@ -5,9 +5,7 @@ import android.view.*
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
-import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.doAfterTextChanged
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import at.mikenet.serbianlatintocyrillic.R
 import kotlinx.coroutines.launch
@@ -46,11 +44,9 @@ class AutoConvertLayoutFragment : ConverterFragment() {
         changeLanguageButton.isClickable = false
 
         val liveData = viewModel.getText()
-        liveData.observe(viewLifecycleOwner, Observer<Pair<String, Boolean>> {
-            if (it != null) {
-                view.findViewById<EditText>(R.id.auto_convert_text)?.setText(it.first)
-            }
-        })
+        liveData.observe(viewLifecycleOwner) {
+            view.findViewById<EditText>(R.id.auto_convert_text)?.setText(it.first)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

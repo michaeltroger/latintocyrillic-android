@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.core.widget.doAfterTextChanged
-import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import at.mikenet.serbianlatintocyrillic.R
 import kotlinx.coroutines.launch
@@ -52,16 +51,14 @@ class SideBySideLayoutFragment : ConverterFragment() {
         changeLanguageButton.isClickable = false
 
         val liveData = viewModel.getText()
-        liveData.observe(viewLifecycleOwner, Observer<Pair<String, Boolean>> {
-            if (it != null) {
-                val (text, isCyrillic) = it
-                if (isCyrillic) {
-                    view.findViewById<EditText>(R.id.cyrillic_text)?.setText(text)
-                } else {
-                    view.findViewById<EditText>(R.id.latin_text)?.setText(text)
-                }
+        liveData.observe(viewLifecycleOwner) {
+            val (text, isCyrillic) = it
+            if (isCyrillic) {
+                view.findViewById<EditText>(R.id.cyrillic_text)?.setText(text)
+            } else {
+                view.findViewById<EditText>(R.id.latin_text)?.setText(text)
             }
-        })
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

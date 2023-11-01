@@ -98,6 +98,7 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
 
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun saveText(context: Context) {
         textCached?.let {
             _text.value = it

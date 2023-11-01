@@ -23,7 +23,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.preferences, rootKey)
 
         findPreference<Preference>(MyPreferenceConstants.Key.LANGUAGE_CHOSEN)?.apply {
-            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 val languageChosen = newValue as String
                 if (languageChosen == MyPreferenceConstants.Value.ChosenLanguage.CUSTOM &&
                         !PreferenceTools.hasCustomAlphabet(context)) {
@@ -49,7 +49,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
         }
 
         findPreference<Preference>(MyPreferenceConstants.Key.RESTORE_ON_START)?.apply {
-            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 val disableAutoCopy = !(newValue as Boolean)
                 if (disableAutoCopy) {
                     PreferenceTools.saveText(context, "", isCyrillic = false)
@@ -104,7 +104,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
                 }
             }
 
-            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { preference, newValue ->
+            onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 if (newValue is String) {
                     AppCompatDelegate.setDefaultNightMode(PreferenceTools.getThemeFromString(requireContext(), newValue))
                 }
