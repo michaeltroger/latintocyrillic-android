@@ -12,9 +12,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import at.mikenet.serbianlatintocyrillic.R
+import at.mikenet.serbianlatintocyrillic.databinding.FragmentCustomizeBinding
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import kotlinx.android.synthetic.main.fragment_customize.*
 
 
 class CustomizeFragment : Fragment() {
@@ -23,12 +23,15 @@ class CustomizeFragment : Fragment() {
         const val EXTRA_LANGUAGE = "lang"
     }
 
+    private lateinit var binding: FragmentCustomizeBinding
+
     private val viewModel by viewModels<CustomizeViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_customize, container, false)
+        binding = FragmentCustomizeBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -61,8 +64,8 @@ class CustomizeFragment : Fragment() {
         }
 
         viewModel.getLatin().observe(viewLifecycleOwner, Observer {
-            if (customize_latin.childCount != it.size) {
-                customize_latin.removeAllViews()
+            if (binding.customizeLatin.childCount != it.size) {
+                binding.customizeLatin.removeAllViews()
                 it.forEachIndexed { i, text ->
                     addLatinView(i, text)
                 }
@@ -70,8 +73,8 @@ class CustomizeFragment : Fragment() {
         })
 
         viewModel.getCyrillic().observe(viewLifecycleOwner, Observer {
-            if (customize_cyrillic.childCount != it.size) {
-                customize_cyrillic.removeAllViews()
+            if (binding.customizeCyrillic.childCount != it.size) {
+                binding.customizeCyrillic.removeAllViews()
                 it.forEachIndexed { i, text ->
                     addCyrillicView(i, text)
                 }
@@ -82,13 +85,13 @@ class CustomizeFragment : Fragment() {
         viewModel.enableRowButton().observe(viewLifecycleOwner, Observer {
             if (!it) return@Observer
 
-            add_row_button.setOnClickListener {
+            binding.addRowButton.setOnClickListener {
                 activity?.currentFocus?.clearFocus()
                 viewModel.addRow()
-                addLatinView(customize_latin.childCount, "")
-                addCyrillicView(customize_cyrillic.childCount, "")
+                addLatinView(binding.customizeLatin.childCount, "")
+                addCyrillicView(binding.customizeCyrillic.childCount, "")
             }
-            add_row_button.isEnabled = true
+            binding.addRowButton.isEnabled = true
         })
 
         viewModel.getShowUseAsDefaultDialog().observe(viewLifecycleOwner, Observer {
@@ -112,10 +115,10 @@ class CustomizeFragment : Fragment() {
         viewModel.enableSaveButton().observe(viewLifecycleOwner, Observer {
             if (!it) return@Observer
 
-            save_button.setOnClickListener {
+            binding.saveButton.setOnClickListener {
                 onSaveClicked()
             }
-            save_button.isEnabled = true
+            binding.saveButton.isEnabled = true
         })
     }
 
@@ -157,7 +160,7 @@ class CustomizeFragment : Fragment() {
     }
 
     private fun addCyrillicView(i: Int, text: String) {
-        customize_cyrillic.addView(
+        binding.customizeCyrillic.addView(
             EditText(context).apply {
                 setText(text)
                 filters += InputFilter.LengthFilter(1)
@@ -172,7 +175,7 @@ class CustomizeFragment : Fragment() {
     }
 
     private fun addLatinView(i: Int, text: String) {
-        customize_latin.addView(
+        binding.customizeLatin.addView(
             EditText(context).apply {
                 setText(text)
                 filters += InputFilter.LengthFilter(2)
