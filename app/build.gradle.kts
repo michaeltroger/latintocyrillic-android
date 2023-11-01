@@ -53,10 +53,6 @@ android {
             signingConfig = signingConfigs.getByName("release")
         }
     }
-
-    kotlinOptions {
-        // allWarningsAsErrors = true TODO: enable later
-    }
 }
 
 kotlin.jvmToolchain(17)
