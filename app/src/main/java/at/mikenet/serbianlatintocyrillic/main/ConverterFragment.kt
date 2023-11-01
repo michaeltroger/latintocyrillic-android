@@ -42,8 +42,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
         super.onCreate(savedInstanceState)
 
         viewModel = (activity as MainActivity).viewModel
-        PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this)
-
+        PreferenceManager.getDefaultSharedPreferences(requireContext()).registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

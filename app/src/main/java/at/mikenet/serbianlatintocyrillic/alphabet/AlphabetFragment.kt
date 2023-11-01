@@ -54,7 +54,7 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
             binding.alphabetC.text = it
         })
 
-        PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this)
+        PreferenceManager.getDefaultSharedPreferences(requireContext()).registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onResume() {
