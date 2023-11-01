@@ -1,0 +1,4 @@
+- Unterstützung von Android 14
+- Android Adaptive Icon Unterstützung
+- Entfernung von unbenutzter Weißfläche in den Einstellungen
+- Behebt einen Absturz bei Benutzung eines eigenen Alphabets

@@ -15,8 +15,8 @@ android {
         applicationId = "at.mikenet.serbianlatintocyrillic"
         minSdk = 23
         targetSdk = 34
-        versionCode = 60
-        versionName = "5.5.0"
+        versionCode = 61
+        versionName = "5.5.1"
 
         resourceConfigurations += listOf("en", "de", "hr", "sr", "uk")
     }

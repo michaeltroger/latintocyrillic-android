@@ -1,0 +1,4 @@
+- Support for Android 14
+- Android Adaptive Icon support
+- Removed unused white space in settings menu
+- Fix crash when using custom alphabet
