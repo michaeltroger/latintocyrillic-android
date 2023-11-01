@@ -1,4 +1,5 @@
 - Unterstützung von Android 14
-- Android Adaptive Icon Unterstützung
+- "Adaptive Icon" Unterstützung, ein Android 13 Feature
 - Entfernung von unbenutzter Weißfläche in den Einstellungen
 - Behebt einen Absturz bei Benutzung eines eigenen Alphabets
+- Unterstützung für "Predictive back gesture", ein Android 14 Feature
