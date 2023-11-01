@@ -1,0 +1,3 @@
+#!/bin/bash
+
+grep "versionName =" app/build.gradle.kts | awk '{print $3}' | tr -d '"'

@@ -2,71 +2,74 @@ name: Create Release Build
 
 on:
   workflow_dispatch:
-
+    inputs:
+      upload_to_google:
+        description: "Upload to Google Play"
+        required: true
+        type: boolean
+        default: true
 jobs:
   build:
 
     runs-on: ubuntu-latest
 
+    env:
+      JAVA_VERSION: '17'
+      CREDENTIALS_DIR: 'credentials'
+      AAB_FILE: 'app/build/outputs/bundle/release/app-release.aab'
+      APK_FILE: 'app/build/outputs/apk/release/app-release.apk'
+
     steps:
-    - uses: actions/checkout@v2
-        
-    - name: set up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
-        distribution: 'adopt'
-        cache: gradle
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: grant execute permission for gradlew
-      run: chmod +x gradlew
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: 'temurin'
+          cache: 'gradle'
 
-    - name: set up signing info
-      run: |
-        echo "$RELEASE_KEYSTORE_PROPERTIES" > keystore.properties
-        echo "$RELEASE_KEYSTORE" > keystore.jks.txt
-        base64 -d keystore.jks.txt > keystore.jks
-        rm keystore.jks.txt
-      env:
-        RELEASE_KEYSTORE_PROPERTIES: ${{ secrets.RELEASE_KEYSTORE_PROPERTIES }}
-        RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
-      
-    - name: Build app bundle with Gradle
-      run: ./gradlew bundleRelease
-          
-    - name: set up play store access
-      run: |
-        echo "$PLAY_STORE_CREDENTIALS" > playstore_access.json.txt
-        base64 -d playstore_access.json.txt > playstore_access.json
-        rm playstore_access.json.txt
-      env:
-        PLAY_STORE_CREDENTIALS: ${{ secrets.PLAY_STORE_CREDENTIALS }}
-        
-    - name: setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: '2.7.2'
+      - name: Build App Bundle and APK
+        run: |
+          mkdir "$CREDENTIALS_DIR"
+          echo "$RELEASE_KEYSTORE_PROPERTIES" > "$CREDENTIALS_DIR/keystore.properties"
+          echo "$RELEASE_KEYSTORE" | base64 -d > "$CREDENTIALS_DIR/keystore.jks"
+          ./gradlew bundleRelease assembleRelease
+        env:
+          RELEASE_KEYSTORE_PROPERTIES: ${{ secrets.RELEASE_KEYSTORE_PROPERTIES }}
+          RELEASE_KEYSTORE: ${{ secrets.RELEASE_KEYSTORE }}
 
-    - name: setup Fastlane
-      run: bundle install
-      
-    - name: publish metadata and AAB to Play Store Internal
-      run: bundle exec fastlane supply --aab app/build/outputs/bundle/release/app-release.aab --track internal
-      
-    - name: Build APK with Gradle
-      run: ./gradlew assembleRelease
-      
-    - name: extract version code and version name
-      run: |
-        echo "VERSION_NAME="$(grep "versionName" app/build.gradle | awk '{print $2}' | sed 's/"//g') >> $GITHUB_ENV
-        echo "VERSION_CODE="$(grep "versionCode" app/build.gradle | awk '{print $2}') >> $GITHUB_ENV
-        
-    - name: create tag and release on GitHub
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: ${{ env.VERSION_CODE }}
-        name: ${{ env.VERSION_NAME }}
-        body_path: fastlane/metadata/android/en-US/changelogs/${{ env.VERSION_CODE }}.txt
-        files: app/build/outputs/apk/release/app-release.apk
+      - name: Remove any credentials
+        if: always()
+        run: rm -rd "$CREDENTIALS_DIR"
 
+      - name: Extract version code and version name
+        run: |
+          echo "VERSION_NAME="$(scripts/get_version_name)"" >> $GITHUB_ENV
+          echo "VERSION_CODE="$(scripts/get_version_code)"" >> $GITHUB_ENV
 
+      - name: Create tag and release on GitHub if not already done
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ env.VERSION_CODE }}
+          name: ${{ env.VERSION_NAME }}
+          bodyFile: fastlane/metadata/android/en-US/changelogs/${{ env.VERSION_CODE }}.txt
+          artifacts: ${{ env.APK_FILE }}
+          makeLatest: true
+          skipIfReleaseExists: true
+          artifactErrorsFailBuild: true
+
+      - name: Setup Ruby
+        if: ${{ inputs.upload_to_google }}
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Upload app to Google Play
+        if: ${{ inputs.upload_to_google }}
+        run: |
+          export PLAYSTORE_KEY=$(echo "$PLAY_STORE_CREDENTIALS" | base64 -d)
+          bundle exec fastlane google
+        env:
+          PLAY_STORE_CREDENTIALS: ${{ secrets.PLAY_STORE_CREDENTIALS }}
