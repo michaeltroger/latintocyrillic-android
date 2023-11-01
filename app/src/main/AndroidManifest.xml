@@ -6,6 +6,7 @@
         android:icon="@mipmap/ic_launcher"
         android:name=".MyApplication"
         android:label="@string/app_name"
+        android:enableOnBackInvokedCallback="true"
         android:theme="@style/Theme.AppCompat.DayNight">
         <activity
             android:name=".MainActivity"
