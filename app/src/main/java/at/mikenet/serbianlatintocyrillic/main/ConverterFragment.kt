@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.preference.PreferenceManager
@@ -15,7 +16,7 @@ import at.mikenet.serbianlatintocyrillic.settings.SettingsActivity
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 
-abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener {
+abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener, MenuProvider {
 
     private var shouldUpdateLanguage = false
 
@@ -58,8 +59,8 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
         })
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
             R.id.show_alphabet -> {
                 showAlphabet()
                 return true
@@ -70,7 +71,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
                 return true
             }
         }
-        return super.onOptionsItemSelected(item)
+        return false
     }
 
     private fun showAlphabet() {

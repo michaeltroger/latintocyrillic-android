@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -14,7 +13,7 @@ import at.mikenet.serbianlatintocyrillic.R
 import kotlinx.coroutines.launch
 
 
-class AutoConvertLayoutFragment : ConverterFragment(), MenuProvider {
+class AutoConvertLayoutFragment : ConverterFragment() {
 
     private lateinit var autoConvertText: EditText
     private lateinit var autoConvertButton: Button
@@ -68,7 +67,7 @@ class AutoConvertLayoutFragment : ConverterFragment(), MenuProvider {
                 return true
             }
         }
-        return super.onOptionsItemSelected(menuItem)
+        return super.onMenuItemSelected(menuItem)
     }
 
     private fun autoConvert() {

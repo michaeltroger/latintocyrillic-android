@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.core.view.MenuHost
-import androidx.core.view.MenuProvider
 import androidx.core.widget.doAfterTextChanged
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -14,7 +13,7 @@ import at.mikenet.serbianlatintocyrillic.R
 import kotlinx.coroutines.launch
 
 
-class SideBySideLayoutFragment : ConverterFragment(), MenuProvider {
+class SideBySideLayoutFragment : ConverterFragment() {
 
     private lateinit var cyrillicText: EditText
     private lateinit var latinText: EditText
@@ -89,7 +88,7 @@ class SideBySideLayoutFragment : ConverterFragment(), MenuProvider {
                 return true
             }
         }
-        return super.onOptionsItemSelected(menuItem)
+        return super.onMenuItemSelected(menuItem)
     }
 
     private fun latinToCyrillic() {

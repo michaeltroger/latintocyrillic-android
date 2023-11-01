@@ -7,9 +7,12 @@ import android.text.TextUtils
 import android.view.*
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.databinding.FragmentCustomizeBinding
@@ -17,7 +20,7 @@ import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 
 
-class CustomizeFragment : Fragment() {
+class CustomizeFragment : Fragment(), MenuProvider {
 
     companion object {
         const val EXTRA_LANGUAGE = "lang"
@@ -29,7 +32,8 @@ class CustomizeFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        setHasOptionsMenu(true)
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         binding = FragmentCustomizeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -139,18 +143,18 @@ class CustomizeFragment : Fragment() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
             R.id.menu_save_custom -> {
                 onSaveClicked()
                 return true
             }
         }
-        return super.onOptionsItemSelected(item)
+        return false
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.customize_menu, menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.customize_menu, menu)
 
         viewModel.enableSaveButton().observe(viewLifecycleOwner, Observer {
             if (!it) return@Observer
@@ -188,5 +192,4 @@ class CustomizeFragment : Fragment() {
             }
         )
     }
-
 }
