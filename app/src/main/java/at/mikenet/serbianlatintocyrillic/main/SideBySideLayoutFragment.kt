@@ -5,13 +5,16 @@ import android.view.*
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.core.view.MenuHost
+import androidx.core.view.MenuProvider
 import androidx.core.widget.doAfterTextChanged
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import at.mikenet.serbianlatintocyrillic.R
 import kotlinx.coroutines.launch
 
 
-class SideBySideLayoutFragment : ConverterFragment() {
+class SideBySideLayoutFragment : ConverterFragment(), MenuProvider {
 
     private lateinit var cyrillicText: EditText
     private lateinit var latinText: EditText
@@ -22,7 +25,8 @@ class SideBySideLayoutFragment : ConverterFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        setHasOptionsMenu(true)
+        val menuHost: MenuHost = requireActivity()
+        menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return inflater.inflate(R.layout.fragment_side_by_side_layout, container, false)
     }
 
@@ -61,8 +65,8 @@ class SideBySideLayoutFragment : ConverterFragment() {
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
+    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
             R.id.clear_all -> {
                 latinText.setText("")
                 cyrillicText.setText("")
@@ -85,7 +89,7 @@ class SideBySideLayoutFragment : ConverterFragment() {
                 return true
             }
         }
-        return super.onOptionsItemSelected(item)
+        return super.onOptionsItemSelected(menuItem)
     }
 
     private fun latinToCyrillic() {
@@ -120,8 +124,8 @@ class SideBySideLayoutFragment : ConverterFragment() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.side_by_side_menu, menu)
+    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+        menuInflater.inflate(R.menu.side_by_side_menu, menu)
     }
 
     override fun updateLanguageButton(text: String) {
