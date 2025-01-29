@@ -1,4 +1,4 @@
-<b>Dieser Lateinische Schrift zu Kyrillische Schrift (Latinica zu Ћирилица) Transliterator konvertiert einen auf lateinischer Schrift basierenden Text zu einem auf Kyrillisch basierenden Text und genauso in die andere Richtung. Beherrscht die Umwandlung von Serbisch Azbuka, Russisch (ISO 9:1995) und 5 weiteren Alphabeten. Die Umwandlungstabelle kann aber auch vollständig angepasst und erweitert werden.</b>
+Dieser Lateinische Schrift zu Kyrillische Schrift (Latinica zu Ћирилица) Transliterator konvertiert einen auf lateinischer Schrift basierenden Text zu einem auf Kyrillisch basierenden Text und genauso in die andere Richtung. Beherrscht die Umwandlung von Serbisch Azbuka, Russisch (ISO 9:1995) und 5 weiteren Alphabeten. Die Umwandlungstabelle kann aber auch vollständig angepasst und erweitert werden.
 
 
 Unterstützt zwei verschiedene Layouts: 
