@@ -5,14 +5,12 @@ Supports two different layouts:
 and
 -Single text field with auto-detection of text type
 
-
 More features:
 -The converted text can automatically be copied to the clipboard.
 -All letters currently used for the conversion can be seen in a summing up
 -Remembers inserted text even if you close the app and reopen it 
 -You can customize the alphabet of your choice or even build your own conversion alphabet from scratch 
 -Dark theme support - choose between light and dark theme
-
 
 Includes the following alphabets for Latin to Cyrillic and Cyrillic to Latin conversion:
 Serbian Azbuka
