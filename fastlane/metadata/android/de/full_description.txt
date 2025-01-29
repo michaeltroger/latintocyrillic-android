@@ -1,11 +1,9 @@
 Dieser Lateinische Schrift zu Kyrillische Schrift (Latinica zu Ћирилица) Transliterator konvertiert einen auf lateinischer Schrift basierenden Text zu einem auf Kyrillisch basierenden Text und genauso in die andere Richtung. Beherrscht die Umwandlung von Serbisch Azbuka, Russisch (ISO 9:1995) und 5 weiteren Alphabeten. Die Umwandlungstabelle kann aber auch vollständig angepasst und erweitert werden.
 
-
 Unterstützt zwei verschiedene Layouts: 
 -Lateinischer und Kyrillischer Text nebeneinander
 und
 -Einzelnes Textfeld mit automatischer Erkennung des Texttyps
-
 
 Mehr Funktionen:
 -Der konvertierte Text kann automatisch in die Zwischenablage kopiert werden
@@ -13,7 +11,6 @@ Mehr Funktionen:
 -Merkt sich eingegebenen Text sogar wenn die App beendet wird
 -Dark Theme Support - Wähle zwischen einem hellen und einem dunklen Design
 -Du kannst das Alphabet deiner Wahl anpassen oder eine eigene Umwandlungstabelle von Grund auf entwickeln
-
 
 Beeinhaltet folgende Alphabete zur Lateinisch zu Kyrillisch und Kyrillisch zu Lateinisch Umwandlung:
 Serbisches Azbuka
