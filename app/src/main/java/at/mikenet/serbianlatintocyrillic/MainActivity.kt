@@ -7,10 +7,12 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.WindowManager
+import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import androidx.preference.PreferenceManager
+import at.mikenet.serbianlatintocyrillic.extensions.applySystemInsets
 import at.mikenet.serbianlatintocyrillic.main.AutoConvertLayoutFragment
 import at.mikenet.serbianlatintocyrillic.main.ConverterViewModel
 import at.mikenet.serbianlatintocyrillic.main.SideBySideLayoutFragment
@@ -30,11 +32,14 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this)
 
         setContentView(R.layout.activity_main)
+
+        applySystemInsets(R.id.main_root)
 
         handleIncomingTextIntent()
 
