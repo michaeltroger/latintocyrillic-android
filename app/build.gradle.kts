@@ -58,6 +58,8 @@ android {
 kotlin.jvmToolchain(17)
 
 dependencies {
+    implementation(platform(libs.org.jetbrains.kotlin.bom))
+
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.constraintlayout)
