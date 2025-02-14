@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "at.mikenet.serbianlatintocyrillic"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "at.mikenet.serbianlatintocyrillic"
         minSdk = 23
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 61
         versionName = "5.5.1"
 
