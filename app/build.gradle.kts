@@ -1,6 +1,4 @@
 import java.io.ByteArrayInputStream
-import java.io.FileInputStream
-import java.io.IOException
 import java.util.Properties
 
 plugins {
@@ -45,7 +43,7 @@ android {
                         keyPassword = keystoreProperties.getProperty("KEY_PASSWORD")
                         storeFile = rootProject.file("credentials/keystore.jks")
                         storePassword = keystoreProperties.getProperty("STORE_PASSWORD")
-                    } catch(ignored: IOException) {
+                    } catch(ignored: Exception) {
                         println("No signing configuration found, ignoring: $ignored")
                     }
                 }
