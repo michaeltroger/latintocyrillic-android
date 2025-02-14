@@ -1,3 +1,4 @@
+import java.io.ByteArrayInputStream
 import java.io.FileInputStream
 import java.io.IOException
 import java.util.Properties
@@ -37,13 +38,12 @@ android {
             signingConfigs {
                 create("release") {
                     try {
-                        val keystorePropertiesFile = rootProject.file("credentials/keystore.properties")
                         val keystoreProperties = Properties()
-                        keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+                        keystoreProperties.load(ByteArrayInputStream(System.getenv("RELEASE_KEYSTORE_PROPERTIES").toByteArray()))
 
                         keyAlias = keystoreProperties.getProperty("KEY_ALIAS")
                         keyPassword = keystoreProperties.getProperty("KEY_PASSWORD")
-                        storeFile = rootProject.file("credentials/${keystoreProperties.getProperty("STORE_FILE")}")
+                        storeFile = rootProject.file("credentials/keystore.jks")
                         storePassword = keystoreProperties.getProperty("STORE_PASSWORD")
                     } catch(ignored: IOException) {
                         println("No signing configuration found, ignoring: $ignored")
