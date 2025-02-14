@@ -1,15 +1,15 @@
 [versions]
-androidx-appcompat = "1.6.1"
-androidx-constraintlayout = "2.1.4"
-androidx-core-ktx = "1.12.0"
-androidx-fragment-ktx = "1.6.1"
-androidx-lifecycle = "2.6.2"
+android-gradle-plugin = "8.7.3"
+androidx-appcompat = "1.7.0"
+androidx-constraintlayout = "2.2.0"
+androidx-core-ktx = "1.15.0"
+androidx-fragment-ktx = "1.8.6"
+androidx-lifecycle = "2.8.7"
 androidx-preference-ktx = "1.2.1"
-com-android-application = "8.1.2"
-com-google-code-gson = "2.10.1"
-com-michaeltroger-latintocyrillic = "1.0.0"
+com-google-code-gson = "2.12.1"
+com-michaeltroger-latintocyrillic = "2.0.0"
 com-vorlonsoft-androidrate = "1.2.1"
-kotlin = "1.9.10"
+kotlin = "2.1.10"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }
@@ -19,10 +19,12 @@ androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
 androidx-preference-ktx = { module = "androidx.preference:preference-ktx", version.ref = "androidx-preference-ktx" }
 
+org-jetbrains-kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version.ref = "kotlin" }
+
 com-michaeltroger-latintocyrillic = { module = "com.michaeltroger:latin-to-cyrillic", version.ref = "com-michaeltroger-latintocyrillic" }
 com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "com-google-code-gson" }
 com-vorlonsoft-androidrate = { module = "com.vorlonsoft:androidrate", version.ref = "com-vorlonsoft-androidrate" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version.ref = "com-android-application" }
+com-android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
