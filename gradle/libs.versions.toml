@@ -1,11 +1,11 @@
 [versions]
+android-gradle-plugin = "8.7.3"
 androidx-appcompat = "1.6.1"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.12.0"
 androidx-fragment-ktx = "1.6.1"
 androidx-lifecycle = "2.6.2"
 androidx-preference-ktx = "1.2.1"
-com-android-application = "8.1.2"
 com-google-code-gson = "2.10.1"
 com-michaeltroger-latintocyrillic = "1.0.0"
 com-vorlonsoft-androidrate = "1.2.1"
@@ -26,5 +26,5 @@ com-google-code-gson = { module = "com.google.code.gson:gson", version.ref = "co
 com-vorlonsoft-androidrate = { module = "com.vorlonsoft:androidrate", version.ref = "com-vorlonsoft-androidrate" }
 
 [plugins]
-com-android-application = { id = "com.android.application", version.ref = "com-android-application" }
+com-android-application = { id = "com.android.application", version.ref = "android-gradle-plugin" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
