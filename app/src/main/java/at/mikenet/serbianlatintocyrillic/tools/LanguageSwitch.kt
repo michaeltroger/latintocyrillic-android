@@ -1,14 +1,13 @@
 package at.mikenet.serbianlatintocyrillic.tools
 
 import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AlertDialog
+import androidx.navigation.NavController
 import at.mikenet.serbianlatintocyrillic.R
-import at.mikenet.serbianlatintocyrillic.customize.CustomizeActivity
 
 object LanguageSwitch {
 
-    fun openLanguageSwitchDialog(context: Context, onDismissCallback: (lang: String) -> Unit) {
+    fun openLanguageSwitchDialog(context: Context, navController: NavController, onDismissCallback: (lang: String) -> Unit) {
         var lang = ""
         val items = context.resources.getStringArray(R.array.languageChosen);
         val values = context.resources.getStringArray(R.array.languageChosenValues);
@@ -25,8 +24,7 @@ object LanguageSwitch {
                         AlertDialog.Builder(context)
                                 .setMessage(context.getString(R.string.alert_conversion_without_alphabet_title))
                                 .setPositiveButton(context.getString(R.string.alert_conversion_without_alphabet_yes)) { _, _ ->
-                                    val i = Intent(context, CustomizeActivity::class.java)
-                                    context.startActivity(i)
+                                    navController.navigate(R.id.customizeFragment)
                                 }
                                 .setNegativeButton(context.getString(R.string.alert_conversion_without_alphabet_no)) { _, _ ->
                                     // nothing to do

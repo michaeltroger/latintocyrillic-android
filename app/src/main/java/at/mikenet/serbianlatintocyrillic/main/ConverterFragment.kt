@@ -8,11 +8,10 @@ import android.view.View
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.MainActivity
 import at.mikenet.serbianlatintocyrillic.R
-import at.mikenet.serbianlatintocyrillic.alphabet.AlphabetActivity
-import at.mikenet.serbianlatintocyrillic.settings.SettingsActivity
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 
@@ -66,8 +65,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
                 return true
             }
             R.id.menu_settings -> {
-                val i = Intent(context, SettingsActivity::class.java)
-                startActivity(i)
+                findNavController().navigate(R.id.settingsFragment)
                 return true
             }
         }
@@ -75,8 +73,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
     }
 
     private fun showAlphabet() {
-        val i = Intent(context, AlphabetActivity::class.java)
-        startActivity(i)
+        findNavController().navigate(R.id.alphabetFragment)
     }
 
     override fun onStop() {
@@ -93,7 +90,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
     }
 
     fun openLanguageSwitchDialog() {
-        LanguageSwitch.openLanguageSwitchDialog(requireContext()) {
+        LanguageSwitch.openLanguageSwitchDialog(requireContext(), findNavController()) {
             lang -> viewModel.updateLanguage(requireContext(), lang)
         }
     }

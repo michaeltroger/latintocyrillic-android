@@ -10,12 +10,13 @@ import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.commit
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.extensions.applySystemInsets
-import at.mikenet.serbianlatintocyrillic.main.AutoConvertLayoutFragment
 import at.mikenet.serbianlatintocyrillic.main.ConverterViewModel
-import at.mikenet.serbianlatintocyrillic.main.SideBySideLayoutFragment
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import com.vorlonsoft.android.rate.AppRate
@@ -26,10 +27,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private var layoutChangeRequested = false
     val viewModel by viewModels<ConverterViewModel>()
 
-    private companion object {
-        const val SIDE_BY_SIDE_FRAGMENT_TAG = "sidebyside"
-        const val AUTO_CONVERT_FRAGMENT_TAG = "autoconvert"
-    }
+    private var navController: NavController? = null
+    private val appBarConfiguration = AppBarConfiguration.Builder(
+        R.id.autoConvertLayoutFragment,
+        R.id.sideBySideLayoutFragment,
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -43,7 +45,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         handleIncomingTextIntent()
 
-        setLayout()
+        setUpNavigation()
 
         when (resources.configuration.orientation) {
             Configuration.ORIENTATION_PORTRAIT -> window.setSoftInputMode(
@@ -85,11 +87,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.auto_convert_layout -> {
-                setAutoConvertFragmentIfNotSetYet()
+                navController?.navigate(R.id.autoConvertLayoutFragment)
                 PreferenceTools.saveUseAutoConvertLayout(baseContext, true)
             }
             R.id.side_by_side_layout -> {
-                setSideBySideFragmentIfNotSetYet()
+                navController?.navigate(R.id.sideBySideLayoutFragment)
                 PreferenceTools.saveUseAutoConvertLayout(baseContext, false)
             }
         }
@@ -100,32 +102,37 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         super.onResume()
         if (layoutChangeRequested) {
             layoutChangeRequested = false
-            setLayout()
+            updateLayout()
         }
-
     }
 
-    private fun setLayout() {
+    override fun onSupportNavigateUp(): Boolean {
+        return navController?.navigateUp() == true || super.onSupportNavigateUp()
+    }
+
+    private fun updateLayout() {
         if (PreferenceTools.useAutoConvertLayout(baseContext)) {
-            setAutoConvertFragmentIfNotSetYet()
+            navController?.navigate(R.id.autoConvertLayoutFragment)
         } else {
-            setSideBySideFragmentIfNotSetYet()
+            navController?.navigate(R.id.sideBySideLayoutFragment)
         }
     }
 
-    private fun setAutoConvertFragmentIfNotSetYet() {
-        if (supportFragmentManager.findFragmentByTag(AUTO_CONVERT_FRAGMENT_TAG) == null) {
-            supportFragmentManager.commit {
-                replace(R.id.main_fragment_container, AutoConvertLayoutFragment(), AUTO_CONVERT_FRAGMENT_TAG)
+    private fun setUpNavigation() {
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
+        navController = navHostFragment.navController.apply {
+            graph =  navInflater.inflate(R.navigation.nav_graph).apply {
+                if (PreferenceTools.useAutoConvertLayout(baseContext)) {
+                    setStartDestination(R.id.autoConvertLayoutFragment)
+                } else {
+                    setStartDestination(R.id.sideBySideLayoutFragment)
+                }
             }
-        }
-    }
-
-    private fun setSideBySideFragmentIfNotSetYet() {
-        if (supportFragmentManager.findFragmentByTag(SIDE_BY_SIDE_FRAGMENT_TAG) == null) {
-            supportFragmentManager.commit {
-                replace(R.id.main_fragment_container, SideBySideLayoutFragment(), SIDE_BY_SIDE_FRAGMENT_TAG)
-            }
+        }.also {
+            setupActionBarWithNavController(
+                navController = it,
+                configuration = appBarConfiguration.build()
+            )
         }
     }
 }

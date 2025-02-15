@@ -41,7 +41,8 @@ class CustomizeFragment : Fragment(), MenuProvider {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val preselectedLang = activity?.intent?.getStringExtra(EXTRA_LANGUAGE)
+
+        val preselectedLang = arguments?.getString(EXTRA_LANGUAGE)
         if (preselectedLang == null) {
             viewModel.getChooseTemplateDialog().observe(viewLifecycleOwner, Observer<Boolean> {
                 if (it) {

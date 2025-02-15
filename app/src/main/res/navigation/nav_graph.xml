@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/placeholder">
+
+    <fragment
+        android:id="@+id/sideBySideLayoutFragment"
+        android:name="at.mikenet.serbianlatintocyrillic.main.SideBySideLayoutFragment"
+        android:label="SideBySideLayoutFragment" />
+    <fragment
+        android:id="@+id/autoConvertLayoutFragment"
+        android:name="at.mikenet.serbianlatintocyrillic.main.AutoConvertLayoutFragment"
+        android:label="AutoConvertLayoutFragment" />
+    <fragment
+        android:id="@+id/alphabetFragment"
+        android:name="at.mikenet.serbianlatintocyrillic.alphabet.AlphabetFragment"
+        android:label="AlphabetFragment" />
+    <fragment
+        android:id="@+id/customizeFragment"
+        android:name="at.mikenet.serbianlatintocyrillic.customize.CustomizeFragment"
+        android:label="fragment_customize"
+        tools:layout="@layout/fragment_customize" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="at.mikenet.serbianlatintocyrillic.settings.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment android:id="@+id/placeholder" />
+</navigation>
