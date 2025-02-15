@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.extensions.applySystemInsets
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : AppCompatActivity(R.layout.activity_settings) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -17,9 +17,7 @@ class SettingsActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        setContentView(R.layout.activity_settings)
-
-        applySystemInsets(R.id.settings_root)
+        applySystemInsets(R.id.settings_fragment)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

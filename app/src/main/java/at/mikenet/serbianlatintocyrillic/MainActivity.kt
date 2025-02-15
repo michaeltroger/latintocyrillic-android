@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
         setContentView(R.layout.activity_main)
 
-        applySystemInsets(R.id.main_root)
+        applySystemInsets(R.id.main_fragment_container)
 
         handleIncomingTextIntent()
 
@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private fun setAutoConvertFragmentIfNotSetYet() {
         if (supportFragmentManager.findFragmentByTag(AUTO_CONVERT_FRAGMENT_TAG) == null) {
             supportFragmentManager.commit {
-                replace(R.id.main_root, AutoConvertLayoutFragment(), AUTO_CONVERT_FRAGMENT_TAG)
+                replace(R.id.main_fragment_container, AutoConvertLayoutFragment(), AUTO_CONVERT_FRAGMENT_TAG)
             }
         }
     }
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     private fun setSideBySideFragmentIfNotSetYet() {
         if (supportFragmentManager.findFragmentByTag(SIDE_BY_SIDE_FRAGMENT_TAG) == null) {
             supportFragmentManager.commit {
-                replace(R.id.main_root, SideBySideLayoutFragment(), SIDE_BY_SIDE_FRAGMENT_TAG)
+                replace(R.id.main_fragment_container, SideBySideLayoutFragment(), SIDE_BY_SIDE_FRAGMENT_TAG)
             }
         }
     }

@@ -7,15 +7,14 @@ import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.extensions.applySystemInsets
 
 
-class CustomizeActivity : AppCompatActivity() {
+class CustomizeActivity : AppCompatActivity(R.layout.activity_customize) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_customize)
+
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_close_24px)
 
         applySystemInsets(R.id.customize_fragment)
     }
-
 }
