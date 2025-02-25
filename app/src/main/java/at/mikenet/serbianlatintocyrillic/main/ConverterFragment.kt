@@ -12,6 +12,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.MainActivity
 import at.mikenet.serbianlatintocyrillic.R
+import at.mikenet.serbianlatintocyrillic.alphabet.AlphabetFragmentDirections
+import at.mikenet.serbianlatintocyrillic.settings.SettingsFragmentDirections
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 
@@ -65,7 +67,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
                 return true
             }
             R.id.menu_settings -> {
-                findNavController().navigate(R.id.settingsFragment)
+                findNavController().navigate(SettingsFragmentDirections.actionGlobalSettingsFragment())
                 return true
             }
         }
@@ -73,7 +75,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
     }
 
     private fun showAlphabet() {
-        findNavController().navigate(R.id.alphabetFragment)
+        findNavController().navigate(AlphabetFragmentDirections.actionGlobalAlphabetFragment())
     }
 
     override fun onStop() {

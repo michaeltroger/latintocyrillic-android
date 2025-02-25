@@ -19,19 +19,16 @@ import at.mikenet.serbianlatintocyrillic.databinding.FragmentCustomizeBinding
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 
+private const val EXTRA_LANGUAGE = "lang"
 
 class CustomizeFragment : Fragment(), MenuProvider {
-
-    companion object {
-        const val EXTRA_LANGUAGE = "lang"
-    }
 
     private lateinit var binding: FragmentCustomizeBinding
 
     private val viewModel by viewModels<CustomizeViewModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         binding = FragmentCustomizeBinding.inflate(inflater, container, false)
@@ -41,10 +38,9 @@ class CustomizeFragment : Fragment(), MenuProvider {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         val preselectedLang = arguments?.getString(EXTRA_LANGUAGE)
         if (preselectedLang == null) {
-            viewModel.getChooseTemplateDialog().observe(viewLifecycleOwner, Observer<Boolean> {
+            viewModel.getChooseTemplateDialog().observe(viewLifecycleOwner) {
                 if (it) {
                     var lang = ""
                     val items = resources.getStringArray(R.array.languageChosen);
@@ -63,21 +59,21 @@ class CustomizeFragment : Fragment(), MenuProvider {
                         .show()
                 }
 
-            })
+            }
         } else {
             viewModel.initViewModel(preselectedLang, requireContext())
         }
 
-        viewModel.getLatin().observe(viewLifecycleOwner, Observer {
+        viewModel.getLatin().observe(viewLifecycleOwner) {
             if (binding.customizeLatin.childCount != it.size) {
                 binding.customizeLatin.removeAllViews()
                 it.forEachIndexed { i, text ->
                     addLatinView(i, text)
                 }
             }
-        })
+        }
 
-        viewModel.getCyrillic().observe(viewLifecycleOwner, Observer {
+        viewModel.getCyrillic().observe(viewLifecycleOwner) {
             if (binding.customizeCyrillic.childCount != it.size) {
                 binding.customizeCyrillic.removeAllViews()
                 it.forEachIndexed { i, text ->
@@ -85,7 +81,7 @@ class CustomizeFragment : Fragment(), MenuProvider {
                 }
             }
 
-        })
+        }
 
         viewModel.enableRowButton().observe(viewLifecycleOwner, Observer {
             if (!it) return@Observer
@@ -99,7 +95,7 @@ class CustomizeFragment : Fragment(), MenuProvider {
             binding.addRowButton.isEnabled = true
         })
 
-        viewModel.getShowUseAsDefaultDialog().observe(viewLifecycleOwner, Observer {
+        viewModel.getShowUseAsDefaultDialog().observe(viewLifecycleOwner) {
             if (it && PreferenceTools.languageChosen(requireContext()) != MyPreferenceConstants.Value.ChosenLanguage.CUSTOM) {
                 AlertDialog.Builder(requireContext())
                     .setMessage(getString(R.string.customize_default_title))
@@ -115,7 +111,7 @@ class CustomizeFragment : Fragment(), MenuProvider {
             } else {
                 activity?.finish()
             }
-        })
+        }
 
         viewModel.enableSaveButton().observe(viewLifecycleOwner, Observer {
             if (!it) return@Observer

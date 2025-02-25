@@ -94,8 +94,6 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
     }
 
     private fun openCustomizeActivity() {
-        findNavController().navigate(R.id.customizeFragment, Bundle().apply {
-            putString(CustomizeFragment.EXTRA_LANGUAGE, viewModel.language().value)
-        })
+        findNavController().navigate(AlphabetFragmentDirections.actionAlphabetFragmentToCustomizeFragment(lang = viewModel.language().value))
     }
 }

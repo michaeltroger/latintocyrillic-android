@@ -16,7 +16,9 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.extensions.applySystemInsets
+import at.mikenet.serbianlatintocyrillic.main.AutoConvertLayoutFragmentDirections
 import at.mikenet.serbianlatintocyrillic.main.ConverterViewModel
+import at.mikenet.serbianlatintocyrillic.main.SideBySideLayoutFragmentDirections
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import com.vorlonsoft.android.rate.AppRate
@@ -87,11 +89,11 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.auto_convert_layout -> {
-                navController?.navigate(R.id.autoConvertLayoutFragment)
+                navController?.navigate(SideBySideLayoutFragmentDirections.actionSideBySideLayoutFragmentToAutoConvertLayoutFragment())
                 PreferenceTools.saveUseAutoConvertLayout(baseContext, true)
             }
             R.id.side_by_side_layout -> {
-                navController?.navigate(R.id.sideBySideLayoutFragment)
+                navController?.navigate(AutoConvertLayoutFragmentDirections.actionAutoConvertLayoutFragmentToSideBySideLayoutFragment())
                 PreferenceTools.saveUseAutoConvertLayout(baseContext, false)
             }
         }
@@ -112,9 +114,9 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
 
     private fun updateLayout() {
         if (PreferenceTools.useAutoConvertLayout(baseContext)) {
-            navController?.navigate(R.id.autoConvertLayoutFragment)
+            navController?.navigate(SideBySideLayoutFragmentDirections.actionSideBySideLayoutFragmentToAutoConvertLayoutFragment())
         } else {
-            navController?.navigate(R.id.sideBySideLayoutFragment)
+            navController?.navigate(AutoConvertLayoutFragmentDirections.actionAutoConvertLayoutFragmentToSideBySideLayoutFragment())
         }
     }
 

@@ -111,7 +111,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun openCustomizeActivity() {
-        findNavController().navigate(R.id.customizeFragment)
+        findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToCustomizeFragment(lang = null))
     }
 
 }

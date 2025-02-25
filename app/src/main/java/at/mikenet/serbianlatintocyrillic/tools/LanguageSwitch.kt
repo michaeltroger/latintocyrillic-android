@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.appcompat.app.AlertDialog
 import androidx.navigation.NavController
 import at.mikenet.serbianlatintocyrillic.R
+import at.mikenet.serbianlatintocyrillic.customize.CustomizeFragmentDirections
 
 object LanguageSwitch {
 
@@ -24,7 +25,7 @@ object LanguageSwitch {
                         AlertDialog.Builder(context)
                                 .setMessage(context.getString(R.string.alert_conversion_without_alphabet_title))
                                 .setPositiveButton(context.getString(R.string.alert_conversion_without_alphabet_yes)) { _, _ ->
-                                    navController.navigate(R.id.customizeFragment)
+                                    navController.navigate(CustomizeFragmentDirections.actionGlobalCustomizeFragment(lang = null))
                                 }
                                 .setNegativeButton(context.getString(R.string.alert_conversion_without_alphabet_no)) { _, _ ->
                                     // nothing to do
