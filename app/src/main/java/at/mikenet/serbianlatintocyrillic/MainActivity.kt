@@ -2,7 +2,6 @@ package at.mikenet.serbianlatintocyrillic
 
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.MenuItem
@@ -14,19 +13,16 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.extensions.applySystemInsets
 import at.mikenet.serbianlatintocyrillic.main.AutoConvertLayoutFragmentDirections
 import at.mikenet.serbianlatintocyrillic.main.ConverterViewModel
 import at.mikenet.serbianlatintocyrillic.main.SideBySideLayoutFragmentDirections
-import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import com.vorlonsoft.android.rate.AppRate
 
 
-class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceChangeListener {
+class MainActivity : AppCompatActivity() {
 
-    private var layoutChangeRequested = false
     val viewModel by viewModels<ConverterViewModel>()
 
     private var navController: NavController? = null
@@ -38,8 +34,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-
-        PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this)
 
         setContentView(R.layout.activity_main)
 
@@ -80,12 +74,6 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         }
     }
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-        when(key) {
-            MyPreferenceConstants.Key.ALTERNATIVE_LAYOUT -> layoutChangeRequested = true
-        }
-    }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId) {
             R.id.auto_convert_layout -> {
@@ -100,24 +88,8 @@ class MainActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferenceCh
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onResume() {
-        super.onResume()
-        if (layoutChangeRequested) {
-            layoutChangeRequested = false
-            updateLayout()
-        }
-    }
-
     override fun onSupportNavigateUp(): Boolean {
         return navController?.navigateUp() == true || super.onSupportNavigateUp()
-    }
-
-    private fun updateLayout() {
-        if (PreferenceTools.useAutoConvertLayout(baseContext)) {
-            navController?.navigate(SideBySideLayoutFragmentDirections.actionSideBySideLayoutFragmentToAutoConvertLayoutFragment())
-        } else {
-            navController?.navigate(AutoConvertLayoutFragmentDirections.actionAutoConvertLayoutFragmentToSideBySideLayoutFragment())
-        }
     }
 
     private fun setUpNavigation() {

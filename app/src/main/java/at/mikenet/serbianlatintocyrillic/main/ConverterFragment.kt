@@ -16,10 +16,12 @@ import at.mikenet.serbianlatintocyrillic.alphabet.AlphabetFragmentDirections
 import at.mikenet.serbianlatintocyrillic.settings.SettingsFragmentDirections
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
+import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 
 abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener, MenuProvider {
 
     private var shouldUpdateLanguage = false
+    private var layoutChangeRequested = false
 
     protected lateinit var viewModel: ConverterViewModel
 
@@ -28,6 +30,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
             MyPreferenceConstants.Key.CUSTOM_LATIN,
             MyPreferenceConstants.Key.CUSTOM_CYRILLIC,
             MyPreferenceConstants.Key.LANGUAGE_CHOSEN -> shouldUpdateLanguage = true
+            MyPreferenceConstants.Key.ALTERNATIVE_LAYOUT -> layoutChangeRequested = true
         }
     }
 
@@ -37,6 +40,10 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
         if (shouldUpdateLanguage) {
             shouldUpdateLanguage = false
             viewModel.updateLanguage(requireContext())
+        }
+        if (layoutChangeRequested) {
+            layoutChangeRequested = false
+            updateLayout()
         }
     }
 
@@ -72,6 +79,18 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
             }
         }
         return false
+    }
+
+    private fun updateLayout() {
+        if (PreferenceTools.useAutoConvertLayout(requireContext().applicationContext)) {
+            if (findNavController().currentDestination?.id == R.id.sideBySideLayoutFragment) {
+                findNavController().navigate(SideBySideLayoutFragmentDirections.actionSideBySideLayoutFragmentToAutoConvertLayoutFragment())
+            }
+        } else {
+            if (findNavController().currentDestination?.id == R.id.autoConvertLayoutFragment) {
+                findNavController().navigate(AutoConvertLayoutFragmentDirections.actionAutoConvertLayoutFragmentToSideBySideLayoutFragment())
+            }
+        }
     }
 
     private fun showAlphabet() {
