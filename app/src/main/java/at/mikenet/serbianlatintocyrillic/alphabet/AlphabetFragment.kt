@@ -1,7 +1,6 @@
 package at.mikenet.serbianlatintocyrillic.alphabet
 
 
-import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.*
@@ -11,9 +10,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.R
-import at.mikenet.serbianlatintocyrillic.customize.CustomizeActivity
 import at.mikenet.serbianlatintocyrillic.customize.CustomizeFragment
 import at.mikenet.serbianlatintocyrillic.databinding.FragmentAlphabetBinding
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
@@ -85,7 +84,7 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
     }
 
     private fun changeAlphabet() {
-        LanguageSwitch.openLanguageSwitchDialog(requireContext()) {
+        LanguageSwitch.openLanguageSwitchDialog(requireContext(), findNavController()) {
             lang -> viewModel.updateLanguage(requireContext(), lang)
         }
     }
@@ -95,8 +94,6 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
     }
 
     private fun openCustomizeActivity() {
-        val i = Intent(context, CustomizeActivity::class.java)
-        i.putExtra(CustomizeFragment.EXTRA_LANGUAGE, viewModel.language().value)
-        startActivity(i)
+        findNavController().navigate(AlphabetFragmentDirections.actionAlphabetFragmentToCustomizeFragment(lang = viewModel.language().value))
     }
 }

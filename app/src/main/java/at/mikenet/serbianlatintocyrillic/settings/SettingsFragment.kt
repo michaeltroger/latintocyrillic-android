@@ -1,20 +1,16 @@
 package at.mikenet.serbianlatintocyrillic.settings
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.navigation.fragment.findNavController
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import at.mikenet.serbianlatintocyrillic.R
-import at.mikenet.serbianlatintocyrillic.customize.CustomizeActivity
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class SettingsFragment : PreferenceFragmentCompat() {
 
@@ -115,8 +111,7 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun openCustomizeActivity() {
-        val i = Intent(context, CustomizeActivity::class.java)
-        startActivity(i)
+        findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToCustomizeFragment(lang = null))
     }
 
 }
