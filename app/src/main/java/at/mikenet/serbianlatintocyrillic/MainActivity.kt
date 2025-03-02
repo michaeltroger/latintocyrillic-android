@@ -9,11 +9,15 @@ import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.core.graphics.Insets
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import at.mikenet.serbianlatintocyrillic.extensions.applySystemInsets
 import at.mikenet.serbianlatintocyrillic.main.AutoConvertLayoutFragmentDirections
 import at.mikenet.serbianlatintocyrillic.main.ConverterViewModel
 import at.mikenet.serbianlatintocyrillic.main.SideBySideLayoutFragmentDirections
@@ -21,7 +25,7 @@ import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import com.vorlonsoft.android.rate.AppRate
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     val viewModel by viewModels<ConverterViewModel>()
 
@@ -35,9 +39,8 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_main)
-
-        applySystemInsets(R.id.main_fragment_container)
+        setupToolbarStatusbar()
+        applySystemInsets()
 
         handleIncomingTextIntent()
 
@@ -58,6 +61,19 @@ class MainActivity : AppCompatActivity() {
             .setRemindLaunchesNumber(1.toByte())  // default is 0, 1 means app is launched 1 or more times after neutral button clicked
             .monitor()                            // Monitors the app launch times
         AppRate.showRateDialogIfMeetsConditions(this) // Shows the Rate Dialog when conditions are met
+    }
+
+    private fun applySystemInsets() {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main_fragment_container)) { v, insets ->
+            val bars: Insets = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or
+                        WindowInsetsCompat.Type.displayCutout()
+            )
+            v.updatePadding(
+                bottom = bars.bottom,
+            )
+            WindowInsetsCompat.CONSUMED
+        }
     }
 
     override fun onNewIntent(intent: Intent?) {
@@ -86,6 +102,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun setupToolbarStatusbar() {
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
     }
 
     override fun onSupportNavigateUp(): Boolean {
