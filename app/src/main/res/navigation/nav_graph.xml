@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/placeholder">
+
+    <action
+        android:id="@+id/action_global_settingsFragment"
+        app:destination="@id/settingsFragment" />
+    <action
+        android:id="@+id/action_global_alphabetFragment"
+        app:destination="@id/alphabetFragment" />
+    <action
+        android:id="@+id/action_global_customizeFragment"
+        app:destination="@id/customizeFragment" />
+
+    <fragment
+        android:id="@+id/sideBySideLayoutFragment"
+        android:label="@string/app_name"
+        android:name="at.mikenet.serbianlatintocyrillic.main.SideBySideLayoutFragment" >
+        <action
+            android:id="@+id/action_sideBySideLayoutFragment_to_autoConvertLayoutFragment"
+            app:destination="@id/autoConvertLayoutFragment" />
+        <action
+            android:id="@+id/action_sideBySideLayoutFragment_to_alphabetFragment"
+            app:destination="@id/alphabetFragment" />
+        <action
+            android:id="@+id/action_sideBySideLayoutFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_sideBySideLayoutFragment_to_customizeFragment"
+            app:destination="@id/customizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/autoConvertLayoutFragment"
+        android:label="@string/app_name"
+        android:name="at.mikenet.serbianlatintocyrillic.main.AutoConvertLayoutFragment" >
+        <action
+            android:id="@+id/action_autoConvertLayoutFragment_to_sideBySideLayoutFragment"
+            app:destination="@id/sideBySideLayoutFragment" />
+        <action
+            android:id="@+id/action_autoConvertLayoutFragment_to_alphabetFragment"
+            app:destination="@id/alphabetFragment" />
+        <action
+            android:id="@+id/action_autoConvertLayoutFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+        <action
+            android:id="@+id/action_autoConvertLayoutFragment_to_customizeFragment"
+            app:destination="@id/customizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/alphabetFragment"
+        android:label="@string/title_activity_alphabet"
+        android:name="at.mikenet.serbianlatintocyrillic.alphabet.AlphabetFragment" >
+        <action
+            android:id="@+id/action_alphabetFragment_to_customizeFragment"
+            app:destination="@id/customizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/customizeFragment"
+        android:label="@string/title_activity_customize"
+        android:name="at.mikenet.serbianlatintocyrillic.customize.CustomizeFragment"
+        >
+        <argument
+            android:name="lang"
+            app:argType="string"
+            app:nullable="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:label="@string/title_activity_user_setting"
+        android:name="at.mikenet.serbianlatintocyrillic.settings.SettingsFragment"
+        >
+        <action
+            android:id="@+id/action_settingsFragment_to_customizeFragment"
+            app:destination="@id/customizeFragment" />
+    </fragment>
+    <fragment android:id="@+id/placeholder" />
+</navigation>

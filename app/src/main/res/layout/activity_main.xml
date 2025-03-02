@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	android:id="@+id/main_root"
-	xmlns:android="http://schemas.android.com/apk/res/android" />
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:fitsSystemWindows="true"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/app_bar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:fitsSystemWindows="true">
+
+		<androidx.appcompat.widget.Toolbar
+			android:id="@+id/toolbar"
+			android:theme="@style/ThemeOverlay.AppCompat.DayNight.ActionBar"
+			android:layout_width="match_parent"
+			android:layout_height="?attr/actionBarSize"
+			app:layout_scrollFlags="noScroll" />
+	</com.google.android.material.appbar.AppBarLayout>
+
+	<androidx.fragment.app.FragmentContainerView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:defaultNavHost="true"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior"
+		android:name="androidx.navigation.fragment.NavHostFragment"
+		android:id="@+id/main_fragment_container"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

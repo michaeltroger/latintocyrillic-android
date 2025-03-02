@@ -8,17 +8,20 @@ import android.view.View
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.MainActivity
 import at.mikenet.serbianlatintocyrillic.R
-import at.mikenet.serbianlatintocyrillic.alphabet.AlphabetActivity
-import at.mikenet.serbianlatintocyrillic.settings.SettingsActivity
+import at.mikenet.serbianlatintocyrillic.alphabet.AlphabetFragmentDirections
+import at.mikenet.serbianlatintocyrillic.settings.SettingsFragmentDirections
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
+import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 
 abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener, MenuProvider {
 
     private var shouldUpdateLanguage = false
+    private var layoutChangeRequested = false
 
     protected lateinit var viewModel: ConverterViewModel
 
@@ -27,6 +30,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
             MyPreferenceConstants.Key.CUSTOM_LATIN,
             MyPreferenceConstants.Key.CUSTOM_CYRILLIC,
             MyPreferenceConstants.Key.LANGUAGE_CHOSEN -> shouldUpdateLanguage = true
+            MyPreferenceConstants.Key.ALTERNATIVE_LAYOUT -> layoutChangeRequested = true
         }
     }
 
@@ -36,6 +40,10 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
         if (shouldUpdateLanguage) {
             shouldUpdateLanguage = false
             viewModel.updateLanguage(requireContext())
+        }
+        if (layoutChangeRequested) {
+            layoutChangeRequested = false
+            updateLayout()
         }
     }
 
@@ -66,17 +74,27 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
                 return true
             }
             R.id.menu_settings -> {
-                val i = Intent(context, SettingsActivity::class.java)
-                startActivity(i)
+                findNavController().navigate(SettingsFragmentDirections.actionGlobalSettingsFragment())
                 return true
             }
         }
         return false
     }
 
+    private fun updateLayout() {
+        if (PreferenceTools.useAutoConvertLayout(requireContext().applicationContext)) {
+            if (findNavController().currentDestination?.id == R.id.sideBySideLayoutFragment) {
+                findNavController().navigate(SideBySideLayoutFragmentDirections.actionSideBySideLayoutFragmentToAutoConvertLayoutFragment())
+            }
+        } else {
+            if (findNavController().currentDestination?.id == R.id.autoConvertLayoutFragment) {
+                findNavController().navigate(AutoConvertLayoutFragmentDirections.actionAutoConvertLayoutFragmentToSideBySideLayoutFragment())
+            }
+        }
+    }
+
     private fun showAlphabet() {
-        val i = Intent(context, AlphabetActivity::class.java)
-        startActivity(i)
+        findNavController().navigate(AlphabetFragmentDirections.actionGlobalAlphabetFragment())
     }
 
     override fun onStop() {
@@ -93,7 +111,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
     }
 
     fun openLanguageSwitchDialog() {
-        LanguageSwitch.openLanguageSwitchDialog(requireContext()) {
+        LanguageSwitch.openLanguageSwitchDialog(requireContext(), findNavController()) {
             lang -> viewModel.updateLanguage(requireContext(), lang)
         }
     }
