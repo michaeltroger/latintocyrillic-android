@@ -2,6 +2,6 @@
 <resources>
     <string name="issues_uri">https://github.com/michaeltroger/latintocyrillic-android/issues</string>
     <string name="rate_uri">https://play.google.com/store/apps/details?id=at.mikenet.serbianlatintocyrillic</string>
-    <string name="help_translating_uri">https://crwd.in/latin-to-cyrillic</string>
+    <string name="help_translating_uri">https://crowdin.com/project/latin-to-cyrillic</string>
     <string name="contributing_uri">https://github.com/michaeltroger/latintocyrillic-android</string>
 </resources>
