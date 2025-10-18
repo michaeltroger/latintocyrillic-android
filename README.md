@@ -3,7 +3,7 @@
 
 A Cyrillic transliterator that converts Latin to Cyrillic and vice versa.
 
-Help translating the app: https://crwd.in/latin-to-cyrillic
+Help translating the app: https://crowdin.com/project/latin-to-cyrillic
 
 The business logic is available as separate [Kotlin Multiplatform library](https://github.com/michaeltroger/latin-to-cyrillic).
 
