@@ -22,16 +22,17 @@ class SettingsFragment : PreferenceFragmentCompat() {
             onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 val languageChosen = newValue as String
                 if (languageChosen == MyPreferenceConstants.Value.ChosenLanguage.CUSTOM &&
-                        !PreferenceTools.hasCustomAlphabet(context)) {
+                    !PreferenceTools.hasCustomAlphabet(context)
+                ) {
                     AlertDialog.Builder(context)
-                            .setMessage(getString(R.string.alert_conversion_without_alphabet_title))
-                            .setPositiveButton(getString(R.string.alert_conversion_without_alphabet_yes)) { _, _ ->
-                                openCustomizeActivity()
-                            }
-                            .setNegativeButton(getString(R.string.alert_conversion_without_alphabet_no)) { _, _ ->
-                                // nothing to do
-                            }
-                            .show()
+                        .setMessage(getString(R.string.alert_conversion_without_alphabet_title))
+                        .setPositiveButton(getString(R.string.alert_conversion_without_alphabet_yes)) { _, _ ->
+                            openCustomizeActivity()
+                        }
+                        .setNegativeButton(getString(R.string.alert_conversion_without_alphabet_no)) { _, _ ->
+                            // nothing to do
+                        }
+                        .show()
                 }
                 true
             }
@@ -60,49 +61,56 @@ class SettingsFragment : PreferenceFragmentCompat() {
             when {
                 code == Build.VERSION_CODES.P -> {
                     entries = arrayOf(
-                            getString(R.string.theme_light),
-                            getString(R.string.theme_dark),
-                            getString(R.string.theme_follow_system_not_supported),
-                            getString(R.string.theme_battery)
+                        getString(R.string.theme_light),
+                        getString(R.string.theme_dark),
+                        getString(R.string.theme_follow_system_not_supported),
+                        getString(R.string.theme_battery)
                     )
 
                     entryValues = arrayOf(
-                            MyPreferenceConstants.Value.Theme.LIGHT,
-                            MyPreferenceConstants.Value.Theme.DARK,
-                            MyPreferenceConstants.Value.Theme.FOLLOW_SYSTEM,
-                            MyPreferenceConstants.Value.Theme.BATTERY
+                        MyPreferenceConstants.Value.Theme.LIGHT,
+                        MyPreferenceConstants.Value.Theme.DARK,
+                        MyPreferenceConstants.Value.Theme.FOLLOW_SYSTEM,
+                        MyPreferenceConstants.Value.Theme.BATTERY
                     )
                 }
+
                 code > Build.VERSION_CODES.P -> {
                     entries = arrayOf(
-                                getString(R.string.theme_light),
-                                getString(R.string.theme_dark),
-                                getString(R.string.theme_follow_system)
-                        )
+                        getString(R.string.theme_light),
+                        getString(R.string.theme_dark),
+                        getString(R.string.theme_follow_system)
+                    )
 
                     entryValues = arrayOf(
-                            MyPreferenceConstants.Value.Theme.LIGHT,
-                            MyPreferenceConstants.Value.Theme.DARK,
-                            MyPreferenceConstants.Value.Theme.FOLLOW_SYSTEM
+                        MyPreferenceConstants.Value.Theme.LIGHT,
+                        MyPreferenceConstants.Value.Theme.DARK,
+                        MyPreferenceConstants.Value.Theme.FOLLOW_SYSTEM
                     )
                 }
+
                 else -> {
                     entries = arrayOf(
-                            getString(R.string.theme_light),
-                            getString(R.string.theme_dark),
-                            getString(R.string.theme_battery)
+                        getString(R.string.theme_light),
+                        getString(R.string.theme_dark),
+                        getString(R.string.theme_battery)
                     )
                     entryValues = arrayOf(
-                            MyPreferenceConstants.Value.Theme.LIGHT,
-                            MyPreferenceConstants.Value.Theme.DARK,
-                            MyPreferenceConstants.Value.Theme.BATTERY
+                        MyPreferenceConstants.Value.Theme.LIGHT,
+                        MyPreferenceConstants.Value.Theme.DARK,
+                        MyPreferenceConstants.Value.Theme.BATTERY
                     )
                 }
             }
 
             onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _, newValue ->
                 if (newValue is String) {
-                    AppCompatDelegate.setDefaultNightMode(PreferenceTools.getThemeFromString(requireContext(), newValue))
+                    AppCompatDelegate.setDefaultNightMode(
+                        PreferenceTools.getThemeFromString(
+                            requireContext(),
+                            newValue
+                        )
+                    )
                 }
 
                 true
@@ -111,7 +119,11 @@ class SettingsFragment : PreferenceFragmentCompat() {
     }
 
     private fun openCustomizeActivity() {
-        findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToCustomizeFragment(lang = null))
+        findNavController().navigate(
+            SettingsFragmentDirections.actionSettingsFragmentToCustomizeFragment(
+                lang = null
+            )
+        )
     }
 
 }

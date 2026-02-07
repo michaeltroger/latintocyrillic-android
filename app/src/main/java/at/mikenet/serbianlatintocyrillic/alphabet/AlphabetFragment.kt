@@ -3,7 +3,12 @@ package at.mikenet.serbianlatintocyrillic.alphabet
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.Fragment
@@ -18,7 +23,8 @@ import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 
 
-class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener, MenuProvider {
+class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener,
+    MenuProvider {
 
     private var shouldUpdateLanguage = false
     private val viewModel by viewModels<AlphabetViewModel>()
@@ -33,8 +39,10 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         binding = FragmentAlphabetBinding.inflate(inflater, container, false)
@@ -56,7 +64,8 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
             binding.alphabetC.text = it
         })
 
-        PreferenceManager.getDefaultSharedPreferences(requireContext()).registerOnSharedPreferenceChangeListener(this)
+        PreferenceManager.getDefaultSharedPreferences(requireContext())
+            .registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onResume() {
@@ -74,6 +83,7 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
                 changeAlphabet()
                 return true
             }
+
             R.id.menu_adapt_alphabet -> {
                 openCustomizeActivity()
                 return true
@@ -83,8 +93,8 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
     }
 
     private fun changeAlphabet() {
-        LanguageSwitch.openLanguageSwitchDialog(requireContext(), findNavController()) {
-            lang -> viewModel.updateLanguage(requireContext(), lang)
+        LanguageSwitch.openLanguageSwitchDialog(requireContext(), findNavController()) { lang ->
+            viewModel.updateLanguage(requireContext(), lang)
         }
     }
 
@@ -93,6 +103,10 @@ class AlphabetFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeL
     }
 
     private fun openCustomizeActivity() {
-        findNavController().navigate(AlphabetFragmentDirections.actionAlphabetFragmentToCustomizeFragment(lang = viewModel.language().value))
+        findNavController().navigate(
+            AlphabetFragmentDirections.actionAlphabetFragmentToCustomizeFragment(
+                lang = viewModel.language().value
+            )
+        )
     }
 }

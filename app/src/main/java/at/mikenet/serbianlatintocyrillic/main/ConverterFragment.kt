@@ -18,7 +18,8 @@ import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 
-abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener, MenuProvider {
+abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPreferenceChangeListener,
+    MenuProvider {
 
     private var shouldUpdateLanguage = false
     private var layoutChangeRequested = false
@@ -30,6 +31,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
             MyPreferenceConstants.Key.CUSTOM_LATIN,
             MyPreferenceConstants.Key.CUSTOM_CYRILLIC,
             MyPreferenceConstants.Key.LANGUAGE_CHOSEN -> shouldUpdateLanguage = true
+
             MyPreferenceConstants.Key.ALTERNATIVE_LAYOUT -> layoutChangeRequested = true
         }
     }
@@ -51,7 +53,8 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
         super.onCreate(savedInstanceState)
 
         viewModel = (activity as MainActivity).viewModel
-        PreferenceManager.getDefaultSharedPreferences(requireContext()).registerOnSharedPreferenceChangeListener(this)
+        PreferenceManager.getDefaultSharedPreferences(requireContext())
+            .registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -73,6 +76,7 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
                 showAlphabet()
                 return true
             }
+
             R.id.menu_settings -> {
                 findNavController().navigate(SettingsFragmentDirections.actionGlobalSettingsFragment())
                 return true
@@ -111,8 +115,8 @@ abstract class ConverterFragment : Fragment(), SharedPreferences.OnSharedPrefere
     }
 
     fun openLanguageSwitchDialog() {
-        LanguageSwitch.openLanguageSwitchDialog(requireContext(), findNavController()) {
-            lang -> viewModel.updateLanguage(requireContext(), lang)
+        LanguageSwitch.openLanguageSwitchDialog(requireContext(), findNavController()) { lang ->
+            viewModel.updateLanguage(requireContext(), lang)
         }
     }
 

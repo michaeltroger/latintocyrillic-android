@@ -13,8 +13,12 @@ import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools.setLanguageChosen
 import com.michaeltroger.latintocyrillic.LatinCyrillic
-import kotlinx.coroutines.*
-import java.util.*
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.util.Locale
 
 class ConverterViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -127,7 +131,7 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
         _languageButtonString.postValue(PreferenceTools.getLocalizedAlphabetName(context, lang))
     }
 
-    suspend fun cyrillicToLatin(text: String, context: Context): String  {
+    suspend fun cyrillicToLatin(text: String, context: Context): String {
         val output = converter?.cyrillicToLatin(text) ?: ""
         if (shouldCopyText(context)) {
             copyText(output, context)
@@ -152,7 +156,11 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
             clipBoard.setPrimaryClip(ClipData.newPlainText("clip", text))
 
             toast?.cancel()
-            toast = Toast.makeText(context, context.getString(R.string.text_copied_toast), Toast.LENGTH_SHORT)
+            toast = Toast.makeText(
+                context,
+                context.getString(R.string.text_copied_toast),
+                Toast.LENGTH_SHORT
+            )
             toast?.show()
         }
     }

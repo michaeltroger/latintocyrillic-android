@@ -9,7 +9,7 @@ import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class CustomizeViewModel: ViewModel() {
+class CustomizeViewModel : ViewModel() {
 
     private val _cyrillicAlphabet = MutableLiveData<MutableList<String>>().apply {
         value = mutableListOf()
@@ -40,11 +40,11 @@ class CustomizeViewModel: ViewModel() {
         }
     }
 
-    fun getLatin() : LiveData<MutableList<String>> {
+    fun getLatin(): LiveData<MutableList<String>> {
         return _latinAlphabet
     }
 
-    fun getCyrillic() : LiveData<MutableList<String>> {
+    fun getCyrillic(): LiveData<MutableList<String>> {
         return _cyrillicAlphabet
     }
 

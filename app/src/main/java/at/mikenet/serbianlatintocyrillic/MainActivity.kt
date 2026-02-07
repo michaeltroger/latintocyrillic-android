@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
         when (resources.configuration.orientation) {
             Configuration.ORIENTATION_PORTRAIT -> window.setSoftInputMode(
-                    WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or
-                    WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
+                WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or
+                        WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN
             )
         }
 
@@ -91,11 +91,12 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.auto_convert_layout -> {
                 navController?.navigate(SideBySideLayoutFragmentDirections.actionSideBySideLayoutFragmentToAutoConvertLayoutFragment())
                 PreferenceTools.saveUseAutoConvertLayout(baseContext, true)
             }
+
             R.id.side_by_side_layout -> {
                 navController?.navigate(AutoConvertLayoutFragmentDirections.actionAutoConvertLayoutFragmentToSideBySideLayoutFragment())
                 PreferenceTools.saveUseAutoConvertLayout(baseContext, false)
@@ -114,9 +115,10 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun setUpNavigation() {
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.main_fragment_container) as NavHostFragment
         navController = navHostFragment.navController.apply {
-            graph =  navInflater.inflate(R.navigation.nav_graph).apply {
+            graph = navInflater.inflate(R.navigation.nav_graph).apply {
                 if (PreferenceTools.useAutoConvertLayout(baseContext)) {
                     setStartDestination(R.id.autoConvertLayoutFragment)
                 } else {

@@ -4,11 +4,17 @@ package at.mikenet.serbianlatintocyrillic.customize
 import android.os.Bundle
 import android.text.InputFilter
 import android.text.TextUtils
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.MenuHost
 import androidx.core.view.MenuProvider
+import androidx.core.view.get
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -18,7 +24,6 @@ import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.databinding.FragmentCustomizeBinding
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
-import androidx.core.view.get
 
 private const val EXTRA_LANGUAGE = "lang"
 
@@ -28,8 +33,10 @@ class CustomizeFragment : Fragment(), MenuProvider {
 
     private val viewModel by viewModels<CustomizeViewModel>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         binding = FragmentCustomizeBinding.inflate(inflater, container, false)
@@ -44,8 +51,8 @@ class CustomizeFragment : Fragment(), MenuProvider {
             viewModel.getChooseTemplateDialog().observe(viewLifecycleOwner) {
                 if (it) {
                     var lang = ""
-                    val items = resources.getStringArray(R.array.languageChosen);
-                    val values = resources.getStringArray(R.array.languageChosenValues);
+                    val items = resources.getStringArray(R.array.languageChosen)
+                    val values = resources.getStringArray(R.array.languageChosenValues)
                     AlertDialog.Builder(requireContext())
                         .setItems(items) { dialogInterface, number ->
                             lang = values[number].orEmpty()
@@ -128,14 +135,14 @@ class CustomizeFragment : Fragment(), MenuProvider {
         activity?.currentFocus?.clearFocus()
         if (PreferenceTools.hasCustomAlphabet(requireContext())) {
             AlertDialog.Builder(requireContext())
-                    .setMessage(getString(R.string.customize_overwrite_warning_title))
-                    .setPositiveButton(getString(R.string.customize_overwrite_warning_ok)) { _, _ ->
-                        viewModel.save(requireContext())
-                    }
-                    .setNegativeButton(getString(R.string.customize_overwrite_warning_cancel)) { _, _ ->
-                        // nothing to do
-                    }
-                    .show()
+                .setMessage(getString(R.string.customize_overwrite_warning_title))
+                .setPositiveButton(getString(R.string.customize_overwrite_warning_ok)) { _, _ ->
+                    viewModel.save(requireContext())
+                }
+                .setNegativeButton(getString(R.string.customize_overwrite_warning_cancel)) { _, _ ->
+                    // nothing to do
+                }
+                .show()
         } else {
             viewModel.save(requireContext())
         }

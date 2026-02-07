@@ -4,11 +4,13 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import com.michaeltroger.latintocyrillic.*
-import androidx.core.content.edit
+import com.michaeltroger.latintocyrillic.Alphabet
+import com.michaeltroger.latintocyrillic.LatinCyrillic
+import com.michaeltroger.latintocyrillic.LatinCyrillicFactory
 
 object PreferenceTools {
 
@@ -20,7 +22,10 @@ object PreferenceTools {
 
     fun languageChosen(context: Context): String {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
-        return sharedPrefs.getString(MyPreferenceConstants.Key.LANGUAGE_CHOSEN, MyPreferenceConstants.Value.ChosenLanguage.SERBIAN) ?: MyPreferenceConstants.Value.ChosenLanguage.SERBIAN
+        return sharedPrefs.getString(
+            MyPreferenceConstants.Key.LANGUAGE_CHOSEN,
+            MyPreferenceConstants.Value.ChosenLanguage.SERBIAN
+        ) ?: MyPreferenceConstants.Value.ChosenLanguage.SERBIAN
     }
 
     fun setLanguageChosen(context: Context, lang: String) {
@@ -33,9 +38,9 @@ object PreferenceTools {
     fun saveText(context: Context, text: String, isCyrillic: Boolean) {
         val settings = PreferenceManager.getDefaultSharedPreferences(context).edit()
         settings.putString(MyPreferenceConstants.Key.SAVED_TEXT, text)
-                .apply()
+            .apply()
         settings.putBoolean(MyPreferenceConstants.Key.SAVED_TEXT_IS_CYRILLIC, isCyrillic)
-                .apply()
+            .apply()
     }
 
     fun getSavedText(context: Context): String {
@@ -51,12 +56,12 @@ object PreferenceTools {
     fun setCustomLanguage(context: Context) {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         sharedPrefs
-                .edit {
-                    putString(
-                        MyPreferenceConstants.Key.LANGUAGE_CHOSEN,
-                        MyPreferenceConstants.Value.ChosenLanguage.CUSTOM
-                    )
-                }
+            .edit {
+                putString(
+                    MyPreferenceConstants.Key.LANGUAGE_CHOSEN,
+                    MyPreferenceConstants.Value.ChosenLanguage.CUSTOM
+                )
+            }
     }
 
     fun shouldTextBeAutoCopied(context: Context): Boolean {
@@ -77,14 +82,18 @@ object PreferenceTools {
 
     fun getTheme(context: Context): Int {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
-        return getThemeFromString(context, sharedPrefs.getString(MyPreferenceConstants.Key.THEME, "default")!!)
+        return getThemeFromString(
+            context,
+            sharedPrefs.getString(MyPreferenceConstants.Key.THEME, "default")!!
+        )
     }
 
     fun getThemeFromString(context: Context, theme: String): Int {
         val code = Build.VERSION.SDK_INT
-        val nightModeFlags = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
-        return when(theme) {
-            MyPreferenceConstants.Value.Theme.LIGHT ->  AppCompatDelegate.MODE_NIGHT_NO
+        val nightModeFlags =
+            context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        return when (theme) {
+            MyPreferenceConstants.Value.Theme.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
             MyPreferenceConstants.Value.Theme.DARK -> AppCompatDelegate.MODE_NIGHT_YES
             MyPreferenceConstants.Value.Theme.BATTERY -> AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
             MyPreferenceConstants.Value.Theme.FOLLOW_SYSTEM -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
@@ -95,9 +104,11 @@ object PreferenceTools {
                         else -> AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
                     }
                 }
+
                 code >= Build.VERSION_CODES.Q -> {
                     AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
                 }
+
                 else -> {
                     AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
                 }
@@ -121,15 +132,36 @@ object PreferenceTools {
     }
 
     fun getAlphabetRepo(context: Context, lang: String): LatinCyrillic {
-        return when(lang) {
-            MyPreferenceConstants.Value.ChosenLanguage.BELARUSIAN_ISO9 -> LatinCyrillicFactory.create(Alphabet.BelarusianIso9)
-            MyPreferenceConstants.Value.ChosenLanguage.BULGARIAN_ISO9 -> LatinCyrillicFactory.create(Alphabet.BulgarianIso9)
-            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN -> LatinCyrillicFactory.create(Alphabet.Macedonian)
-            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN_ISO9 -> LatinCyrillicFactory.create(Alphabet.MacedonianIso9)
-            MyPreferenceConstants.Value.ChosenLanguage.RUSSIAN_ISO9 -> LatinCyrillicFactory.create(Alphabet.RussianIso9)
-            MyPreferenceConstants.Value.ChosenLanguage.SERBIAN -> LatinCyrillicFactory.create(Alphabet.Serbian)
-            MyPreferenceConstants.Value.ChosenLanguage.UKRAINIAN_ISO9 -> LatinCyrillicFactory.create(Alphabet.UkrainianIso9)
-            MyPreferenceConstants.Value.ChosenLanguage.CUSTOM ->  getCustomAlphabetRepo(context)
+        return when (lang) {
+            MyPreferenceConstants.Value.ChosenLanguage.BELARUSIAN_ISO9 -> LatinCyrillicFactory.create(
+                Alphabet.BelarusianIso9
+            )
+
+            MyPreferenceConstants.Value.ChosenLanguage.BULGARIAN_ISO9 -> LatinCyrillicFactory.create(
+                Alphabet.BulgarianIso9
+            )
+
+            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN -> LatinCyrillicFactory.create(
+                Alphabet.Macedonian
+            )
+
+            MyPreferenceConstants.Value.ChosenLanguage.MACEDONIAN_ISO9 -> LatinCyrillicFactory.create(
+                Alphabet.MacedonianIso9
+            )
+
+            MyPreferenceConstants.Value.ChosenLanguage.RUSSIAN_ISO9 -> LatinCyrillicFactory.create(
+                Alphabet.RussianIso9
+            )
+
+            MyPreferenceConstants.Value.ChosenLanguage.SERBIAN -> LatinCyrillicFactory.create(
+                Alphabet.Serbian
+            )
+
+            MyPreferenceConstants.Value.ChosenLanguage.UKRAINIAN_ISO9 -> LatinCyrillicFactory.create(
+                Alphabet.UkrainianIso9
+            )
+
+            MyPreferenceConstants.Value.ChosenLanguage.CUSTOM -> getCustomAlphabetRepo(context)
             else -> LatinCyrillicFactory.create(Alphabet.Serbian)
         }
     }
