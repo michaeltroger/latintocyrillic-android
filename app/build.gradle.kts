@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "at.mikenet.serbianlatintocyrillic"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "at.mikenet.serbianlatintocyrillic"
