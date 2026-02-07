@@ -1,7 +1,12 @@
 package at.mikenet.serbianlatintocyrillic.main
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -22,8 +27,10 @@ class SideBySideLayoutFragment : ConverterFragment() {
     private lateinit var cyrillicToLatinButton: ImageButton
     private lateinit var changeLanguageButton: ImageButton
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return inflater.inflate(R.layout.fragment_side_by_side_layout, container, false)
@@ -71,18 +78,22 @@ class SideBySideLayoutFragment : ConverterFragment() {
                 cyrillicText.setText("")
                 return true
             }
+
             R.id.copy_latin -> {
                 viewModel.copyText(latinText.text.toString(), requireContext())
                 return true
             }
+
             R.id.copy_cyrillic -> {
                 viewModel.copyText(cyrillicText.text.toString(), requireContext())
                 return true
             }
+
             R.id.share_cyrillic -> {
                 share(cyrillicText.text.toString())
                 return true
             }
+
             R.id.share_latin -> {
                 share(latinText.text.toString())
                 return true
