@@ -14,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "at.mikenet.serbianlatintocyrillic"
         minSdk = 23
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 61
         versionName = "5.5.1"
 
