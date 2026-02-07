@@ -1,16 +1,16 @@
 [versions]
-android-gradle-plugin = "8.7.3"
-androidx-appcompat = "1.7.0"
-androidx-constraintlayout = "2.2.0"
-androidx-core-ktx = "1.15.0"
-androidx-fragment-ktx = "1.8.6"
-androidx-lifecycle = "2.8.7"
-androidx-navigation = "2.8.7"
+android-gradle-plugin = "9.0.0"
+androidx-appcompat = "1.7.1"
+androidx-constraintlayout = "2.2.1"
+androidx-core-ktx = "1.17.0"
+androidx-fragment-ktx = "1.8.9"
+androidx-lifecycle = "2.10.0"
+androidx-navigation = "2.9.7"
 androidx-preference-ktx = "1.2.1"
-com-google-code-gson = "2.12.1"
+com-google-code-gson = "2.13.2"
 com-michaeltroger-latintocyrillic = "2.0.0"
 com-vorlonsoft-androidrate = "1.2.1"
-kotlin = "2.1.10"
+kotlin = "2.3.10"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidx-appcompat" }

@@ -1,7 +1,12 @@
 package at.mikenet.serbianlatintocyrillic.main
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -20,8 +25,10 @@ class AutoConvertLayoutFragment : ConverterFragment() {
     private lateinit var languageButton: Button
     private lateinit var changeLanguageButton: ImageButton
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val menuHost: MenuHost = requireActivity()
         menuHost.addMenuProvider(this, viewLifecycleOwner, Lifecycle.State.RESUMED)
         return inflater.inflate(R.layout.fragment_auto_convert_layout, container, false)
@@ -58,10 +65,12 @@ class AutoConvertLayoutFragment : ConverterFragment() {
                 autoConvertText.setText("")
                 return true
             }
+
             R.id.copy_text -> {
                 viewModel.copyText(autoConvertText.text.toString(), requireContext())
                 return true
             }
+
             R.id.share_text -> {
                 share(autoConvertText.text.toString())
                 return true

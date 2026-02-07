@@ -26,6 +26,7 @@ object MyPreferenceConstants {
             const val UKRAINIAN_ISO9 = "ukrainian_iso9"
             const val CUSTOM = "custom"
         }
+
         object Theme {
             const val LIGHT = "light"
             const val DARK = "dark"

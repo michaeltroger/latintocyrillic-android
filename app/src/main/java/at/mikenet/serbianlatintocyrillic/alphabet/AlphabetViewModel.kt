@@ -11,7 +11,7 @@ import com.michaeltroger.latintocyrillic.LatinCyrillic
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.util.*
+import java.util.Locale
 
 class AlphabetViewModel(app: Application) : AndroidViewModel(app) {
 
@@ -79,7 +79,9 @@ class AlphabetViewModel(app: Application) : AndroidViewModel(app) {
         val convert = converter
         if (convert != null) {
             _latinAlphabet.postValue(convert.getLatinAlphabet().joinToString(separator = "\n"))
-            _cyrillicAlphabet.postValue(convert.getCyrillicAlphabet().joinToString(separator = "\n"))
+            _cyrillicAlphabet.postValue(
+                convert.getCyrillicAlphabet().joinToString(separator = "\n")
+            )
         }
     }
 
