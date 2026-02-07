@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
 
-        setupToolbarStatusbar()
+        setupToolbarStatusBar()
         applySystemInsets()
 
         handleIncomingTextIntent()
@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setupToolbarStatusbar() {
+    private fun setupToolbarStatusBar() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
     }

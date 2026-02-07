@@ -81,8 +81,6 @@ class ConverterViewModel(app: Application) : AndroidViewModel(app) {
         textCached = Pair(text, isCyrillic)
     }
 
-    fun getCachedText() = textCached?.first ?: ""
-
     /**
      * could be called before init is done
      */

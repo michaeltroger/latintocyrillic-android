@@ -8,6 +8,7 @@ import androidx.preference.PreferenceManager
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.michaeltroger.latintocyrillic.*
+import androidx.core.content.edit
 
 object PreferenceTools {
 
@@ -24,8 +25,9 @@ object PreferenceTools {
 
     fun setLanguageChosen(context: Context, lang: String) {
         if (lang.isEmpty()) return
-        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context).edit()
-        sharedPrefs.putString(MyPreferenceConstants.Key.LANGUAGE_CHOSEN, lang).apply()
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putString(MyPreferenceConstants.Key.LANGUAGE_CHOSEN, lang)
+        }
     }
 
     fun saveText(context: Context, text: String, isCyrillic: Boolean) {
@@ -49,12 +51,12 @@ object PreferenceTools {
     fun setCustomLanguage(context: Context) {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         sharedPrefs
-                .edit()
-                .putString(
+                .edit {
+                    putString(
                         MyPreferenceConstants.Key.LANGUAGE_CHOSEN,
                         MyPreferenceConstants.Value.ChosenLanguage.CUSTOM
-                )
-                .apply()
+                    )
+                }
     }
 
     fun shouldTextBeAutoCopied(context: Context): Boolean {
@@ -68,8 +70,9 @@ object PreferenceTools {
     }
 
     fun saveUseAutoConvertLayout(context: Context, useAltLayout: Boolean) {
-        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context).edit()
-        sharedPrefs.putBoolean(MyPreferenceConstants.Key.ALTERNATIVE_LAYOUT, useAltLayout).apply()
+        PreferenceManager.getDefaultSharedPreferences(context).edit {
+            putBoolean(MyPreferenceConstants.Key.ALTERNATIVE_LAYOUT, useAltLayout)
+        }
     }
 
     fun getTheme(context: Context): Int {

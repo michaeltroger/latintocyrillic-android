@@ -18,6 +18,7 @@ import at.mikenet.serbianlatintocyrillic.R
 import at.mikenet.serbianlatintocyrillic.databinding.FragmentCustomizeBinding
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
 import at.mikenet.serbianlatintocyrillic.tools.PreferenceTools
+import androidx.core.view.get
 
 private const val EXTRA_LANGUAGE = "lang"
 
@@ -156,7 +157,7 @@ class CustomizeFragment : Fragment(), MenuProvider {
         viewModel.enableSaveButton().observe(viewLifecycleOwner, Observer {
             if (!it) return@Observer
 
-            menu.getItem(0).isEnabled = true
+            menu[0].isEnabled = true
         })
     }
 

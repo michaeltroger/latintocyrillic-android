@@ -13,7 +13,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.preference.PreferenceManager
 import at.mikenet.serbianlatintocyrillic.R
-import at.mikenet.serbianlatintocyrillic.customize.CustomizeFragment
 import at.mikenet.serbianlatintocyrillic.databinding.FragmentAlphabetBinding
 import at.mikenet.serbianlatintocyrillic.tools.LanguageSwitch
 import at.mikenet.serbianlatintocyrillic.tools.MyPreferenceConstants
